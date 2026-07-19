@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="615" height="188" viewBox="0 0 615 188" role="img" aria-labelledby="title desc">
   <title id="title">Language distribution donut chart</title>
-  <desc id="desc">Language mix across current public repositories: Kotlin 44.4%, HTML 33.7%, JavaScript 17.9%, CSS 3.2%, Python 0.5%, PowerShell 0.3%.</desc>
+  <desc id="desc">Language mix across current public repositories: Kotlin 44.4%, HTML 33.7%, JavaScript 17.9%, CSS 3.2%, Python 0.6%, PowerShell 0.2%.</desc>
   <style>
     .label { fill: #24292f; font: 600 14px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
     .percent { fill: #57606a; font: 600 13px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
@@ -37,12 +37,12 @@
     <circle cx="48.0" cy="141.0" r="3" fill="#00B8D9" />
     <circle cx="26.0" cy="158.5" r="5" fill="#22C55E"/>
     <text class="label" x="44.0" y="162.5">Python</text>
-    <text class="percent" x="183.0" y="162.5" text-anchor="end">0.5%</text>
+    <text class="percent" x="183.0" y="162.5" text-anchor="end">0.6%</text>
     <rect class="bar-track" x="44.0" y="171.5" width="139.0" height="3" rx="1.5"/>
     <rect x="44.0" y="171.5" width="4.00" height="3" rx="1.5" fill="#22C55E"/>
     <circle cx="209.0" cy="30.5" r="5" fill="#EC4899"/>
     <text class="label" x="227.0" y="34.5">PowerShell</text>
-    <text class="percent" x="366.0" y="34.5" text-anchor="end">0.3%</text>
+    <text class="percent" x="366.0" y="34.5" text-anchor="end">0.2%</text>
     <circle cx="231.0" cy="45.0" r="3" fill="#EC4899" />
   </g>
 
