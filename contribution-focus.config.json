@@ -3,12 +3,12 @@
   "excluded_repositories": [],
   "colors": {
     "KrelinnBios/YamiboReaderLite": "#7F52FF",
-    "KrelinnBios/NeoDBLite": "#00B8D9",
-    "KrelinnBios/AceSurvey": "#22C55E",
-    "KrelinnBios/github-profile-language-donut": "#EC4899",
-    "KrelinnBios/KrelinnBios": "#F59E0B",
-    "KrelinnBios/PrismSelf": "#EF4444",
-    "KrelinnBios/github-profile-contribution-focus": "#3B82F6",
-    "Other": "#8B949E"
+    "KrelinnBios/NeoDBLite": "#E34F26",
+    "KrelinnBios/AceSurvey": "#F7DF1E",
+    "KrelinnBios/github-profile-language-donut": "#00B8D9",
+    "KrelinnBios/KrelinnBios": "#22C55E",
+    "KrelinnBios/PrismSelf": "#EC4899",
+    "KrelinnBios/github-profile-contribution-focus": "#7F52FF",
+    "Other": "#EC4899"
   }
 }

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="566" height="280" viewBox="0 0 566 280" role="img" aria-labelledby="title desc">
+  <title id="title">Contribution Focus · Last 12 Months</title>
+  <desc id="desc">Contribution focus from 2025-08 through 2026-07. YamiboReaderLite 516, NeoDBLite 221, AceSurvey 68, github-profile-langu… 36, KrelinnBios 16, Other 6.</desc>
+  <style>
+    .subtitle { fill: #57606a; font: 400 14px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    .repo-label { fill: #24292f; font: 500 14px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    .month, .total { fill: #57606a; font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    .current-month { fill: #24292f; font-weight: 700; }
+    .current-marker { fill: #24292f; opacity: 0.55; }
+    .cell-empty { fill: #d0d7de; opacity: 0.34; }
+    .level-1 { fill-opacity: 0.28; }
+    .level-2 { fill-opacity: 0.50; }
+    .level-3 { fill-opacity: 0.74; }
+    .level-4 { fill-opacity: 1; }
+    @media (prefers-color-scheme: dark) {
+      .repo-label, .current-month { fill: #f0f6fc; }
+      .subtitle, .month, .total { fill: #8b949e; }
+      .current-marker { fill: #f0f6fc; }
+      .cell-empty { fill: #30363d; opacity: 0.72; }
+    }
+  </style>
+
+  <text class="subtitle" x="24" y="28">863 commits across 6 repositories</text>
+  <g aria-hidden="true">
+    <text class="month" x="211.0" y="58" text-anchor="middle">08</text>
+    <text class="month" x="235.0" y="58" text-anchor="middle">09</text>
+    <text class="month" x="259.0" y="58" text-anchor="middle">10</text>
+    <text class="month" x="283.0" y="58" text-anchor="middle">11</text>
+    <text class="month" x="307.0" y="58" text-anchor="middle">12</text>
+    <text class="month" x="331.0" y="58" text-anchor="middle">01</text>
+    <text class="month" x="355.0" y="58" text-anchor="middle">02</text>
+    <text class="month" x="379.0" y="58" text-anchor="middle">03</text>
+    <text class="month" x="403.0" y="58" text-anchor="middle">04</text>
+    <text class="month" x="427.0" y="58" text-anchor="middle">05</text>
+    <text class="month" x="451.0" y="58" text-anchor="middle">06</text>
+    <text class="month current-month" x="475.0" y="58" text-anchor="middle">07</text>
+    <rect class="current-marker" x="468.0" y="64" width="14" height="2" rx="1" />
+    <text class="month" x="542" y="58" text-anchor="end">Total</text>
+    <text class="repo-label" x="24" y="86">YamiboReaderLite</text>
+    <rect class="cell-empty" x="202" y="72" width="18" height="18" rx="3"><title>YamiboReaderLite · 2025-08: 0 commits</title></rect>
+    <rect class="cell-empty" x="226" y="72" width="18" height="18" rx="3"><title>YamiboReaderLite · 2025-09: 0 commits</title></rect>
+    <rect class="cell-empty" x="250" y="72" width="18" height="18" rx="3"><title>YamiboReaderLite · 2025-10: 0 commits</title></rect>
+    <rect class="cell-empty" x="274" y="72" width="18" height="18" rx="3"><title>YamiboReaderLite · 2025-11: 0 commits</title></rect>
+    <rect class="cell-empty" x="298" y="72" width="18" height="18" rx="3"><title>YamiboReaderLite · 2025-12: 0 commits</title></rect>
+    <rect class="cell-empty" x="322" y="72" width="18" height="18" rx="3"><title>YamiboReaderLite · 2026-01: 0 commits</title></rect>
+    <rect class="cell-empty" x="346" y="72" width="18" height="18" rx="3"><title>YamiboReaderLite · 2026-02: 0 commits</title></rect>
+    <rect class="cell-empty" x="370" y="72" width="18" height="18" rx="3"><title>YamiboReaderLite · 2026-03: 0 commits</title></rect>
+    <rect class="cell-empty" x="394" y="72" width="18" height="18" rx="3"><title>YamiboReaderLite · 2026-04: 0 commits</title></rect>
+    <rect class="cell-empty" x="418" y="72" width="18" height="18" rx="3"><title>YamiboReaderLite · 2026-05: 0 commits</title></rect>
+    <rect class="cell level-4" x="442" y="72" width="18" height="18" rx="3" fill="#7F52FF"><title>YamiboReaderLite · 2026-06: 381 commits</title></rect>
+    <rect class="cell level-3" x="466" y="72" width="18" height="18" rx="3" fill="#7F52FF"><title>YamiboReaderLite · 2026-07: 135 commits</title></rect>
+    <text class="total" x="542" y="86" text-anchor="end">516</text>
+    <text class="repo-label" x="24" y="118">NeoDBLite</text>
+    <rect class="cell-empty" x="202" y="104" width="18" height="18" rx="3"><title>NeoDBLite · 2025-08: 0 commits</title></rect>
+    <rect class="cell-empty" x="226" y="104" width="18" height="18" rx="3"><title>NeoDBLite · 2025-09: 0 commits</title></rect>
+    <rect class="cell-empty" x="250" y="104" width="18" height="18" rx="3"><title>NeoDBLite · 2025-10: 0 commits</title></rect>
+    <rect class="cell-empty" x="274" y="104" width="18" height="18" rx="3"><title>NeoDBLite · 2025-11: 0 commits</title></rect>
+    <rect class="cell-empty" x="298" y="104" width="18" height="18" rx="3"><title>NeoDBLite · 2025-12: 0 commits</title></rect>
+    <rect class="cell-empty" x="322" y="104" width="18" height="18" rx="3"><title>NeoDBLite · 2026-01: 0 commits</title></rect>
+    <rect class="cell-empty" x="346" y="104" width="18" height="18" rx="3"><title>NeoDBLite · 2026-02: 0 commits</title></rect>
+    <rect class="cell-empty" x="370" y="104" width="18" height="18" rx="3"><title>NeoDBLite · 2026-03: 0 commits</title></rect>
+    <rect class="cell-empty" x="394" y="104" width="18" height="18" rx="3"><title>NeoDBLite · 2026-04: 0 commits</title></rect>
+    <rect class="cell-empty" x="418" y="104" width="18" height="18" rx="3"><title>NeoDBLite · 2026-05: 0 commits</title></rect>
+    <rect class="cell level-3" x="442" y="104" width="18" height="18" rx="3" fill="#E34F26"><title>NeoDBLite · 2026-06: 96 commits</title></rect>
+    <rect class="cell level-3" x="466" y="104" width="18" height="18" rx="3" fill="#E34F26"><title>NeoDBLite · 2026-07: 125 commits</title></rect>
+    <text class="total" x="542" y="118" text-anchor="end">221</text>
+    <text class="repo-label" x="24" y="150">AceSurvey</text>
+    <rect class="cell-empty" x="202" y="136" width="18" height="18" rx="3"><title>AceSurvey · 2025-08: 0 commits</title></rect>
+    <rect class="cell-empty" x="226" y="136" width="18" height="18" rx="3"><title>AceSurvey · 2025-09: 0 commits</title></rect>
+    <rect class="cell-empty" x="250" y="136" width="18" height="18" rx="3"><title>AceSurvey · 2025-10: 0 commits</title></rect>
+    <rect class="cell-empty" x="274" y="136" width="18" height="18" rx="3"><title>AceSurvey · 2025-11: 0 commits</title></rect>
+    <rect class="cell-empty" x="298" y="136" width="18" height="18" rx="3"><title>AceSurvey · 2025-12: 0 commits</title></rect>
+    <rect class="cell-empty" x="322" y="136" width="18" height="18" rx="3"><title>AceSurvey · 2026-01: 0 commits</title></rect>
+    <rect class="cell-empty" x="346" y="136" width="18" height="18" rx="3"><title>AceSurvey · 2026-02: 0 commits</title></rect>
+    <rect class="cell-empty" x="370" y="136" width="18" height="18" rx="3"><title>AceSurvey · 2026-03: 0 commits</title></rect>
+    <rect class="cell-empty" x="394" y="136" width="18" height="18" rx="3"><title>AceSurvey · 2026-04: 0 commits</title></rect>
+    <rect class="cell-empty" x="418" y="136" width="18" height="18" rx="3"><title>AceSurvey · 2026-05: 0 commits</title></rect>
+    <rect class="cell level-1" x="442" y="136" width="18" height="18" rx="3" fill="#F7DF1E"><title>AceSurvey · 2026-06: 23 commits</title></rect>
+    <rect class="cell level-2" x="466" y="136" width="18" height="18" rx="3" fill="#F7DF1E"><title>AceSurvey · 2026-07: 45 commits</title></rect>
+    <text class="total" x="542" y="150" text-anchor="end">68</text>
+    <text class="repo-label" x="24" y="182">github-profile-langu…</text>
+    <rect class="cell-empty" x="202" y="168" width="18" height="18" rx="3"><title>github-profile-langu… · 2025-08: 0 commits</title></rect>
+    <rect class="cell-empty" x="226" y="168" width="18" height="18" rx="3"><title>github-profile-langu… · 2025-09: 0 commits</title></rect>
+    <rect class="cell-empty" x="250" y="168" width="18" height="18" rx="3"><title>github-profile-langu… · 2025-10: 0 commits</title></rect>
+    <rect class="cell-empty" x="274" y="168" width="18" height="18" rx="3"><title>github-profile-langu… · 2025-11: 0 commits</title></rect>
+    <rect class="cell-empty" x="298" y="168" width="18" height="18" rx="3"><title>github-profile-langu… · 2025-12: 0 commits</title></rect>
+    <rect class="cell-empty" x="322" y="168" width="18" height="18" rx="3"><title>github-profile-langu… · 2026-01: 0 commits</title></rect>
+    <rect class="cell-empty" x="346" y="168" width="18" height="18" rx="3"><title>github-profile-langu… · 2026-02: 0 commits</title></rect>
+    <rect class="cell-empty" x="370" y="168" width="18" height="18" rx="3"><title>github-profile-langu… · 2026-03: 0 commits</title></rect>
+    <rect class="cell-empty" x="394" y="168" width="18" height="18" rx="3"><title>github-profile-langu… · 2026-04: 0 commits</title></rect>
+    <rect class="cell-empty" x="418" y="168" width="18" height="18" rx="3"><title>github-profile-langu… · 2026-05: 0 commits</title></rect>
+    <rect class="cell-empty" x="442" y="168" width="18" height="18" rx="3"><title>github-profile-langu… · 2026-06: 0 commits</title></rect>
+    <rect class="cell level-2" x="466" y="168" width="18" height="18" rx="3" fill="#00B8D9"><title>github-profile-langu… · 2026-07: 36 commits</title></rect>
+    <text class="total" x="542" y="182" text-anchor="end">36</text>
+    <text class="repo-label" x="24" y="214">KrelinnBios</text>
+    <rect class="cell-empty" x="202" y="200" width="18" height="18" rx="3"><title>KrelinnBios · 2025-08: 0 commits</title></rect>
+    <rect class="cell-empty" x="226" y="200" width="18" height="18" rx="3"><title>KrelinnBios · 2025-09: 0 commits</title></rect>
+    <rect class="cell-empty" x="250" y="200" width="18" height="18" rx="3"><title>KrelinnBios · 2025-10: 0 commits</title></rect>
+    <rect class="cell-empty" x="274" y="200" width="18" height="18" rx="3"><title>KrelinnBios · 2025-11: 0 commits</title></rect>
+    <rect class="cell-empty" x="298" y="200" width="18" height="18" rx="3"><title>KrelinnBios · 2025-12: 0 commits</title></rect>
+    <rect class="cell-empty" x="322" y="200" width="18" height="18" rx="3"><title>KrelinnBios · 2026-01: 0 commits</title></rect>
+    <rect class="cell-empty" x="346" y="200" width="18" height="18" rx="3"><title>KrelinnBios · 2026-02: 0 commits</title></rect>
+    <rect class="cell-empty" x="370" y="200" width="18" height="18" rx="3"><title>KrelinnBios · 2026-03: 0 commits</title></rect>
+    <rect class="cell-empty" x="394" y="200" width="18" height="18" rx="3"><title>KrelinnBios · 2026-04: 0 commits</title></rect>
+    <rect class="cell-empty" x="418" y="200" width="18" height="18" rx="3"><title>KrelinnBios · 2026-05: 0 commits</title></rect>
+    <rect class="cell-empty" x="442" y="200" width="18" height="18" rx="3"><title>KrelinnBios · 2026-06: 0 commits</title></rect>
+    <rect class="cell level-1" x="466" y="200" width="18" height="18" rx="3" fill="#22C55E"><title>KrelinnBios · 2026-07: 16 commits</title></rect>
+    <text class="total" x="542" y="214" text-anchor="end">16</text>
+    <text class="repo-label" x="24" y="246">Other</text>
+    <rect class="cell-empty" x="202" y="232" width="18" height="18" rx="3"><title>Other · 2025-08: 0 commits</title></rect>
+    <rect class="cell-empty" x="226" y="232" width="18" height="18" rx="3"><title>Other · 2025-09: 0 commits</title></rect>
+    <rect class="cell-empty" x="250" y="232" width="18" height="18" rx="3"><title>Other · 2025-10: 0 commits</title></rect>
+    <rect class="cell-empty" x="274" y="232" width="18" height="18" rx="3"><title>Other · 2025-11: 0 commits</title></rect>
+    <rect class="cell-empty" x="298" y="232" width="18" height="18" rx="3"><title>Other · 2025-12: 0 commits</title></rect>
+    <rect class="cell-empty" x="322" y="232" width="18" height="18" rx="3"><title>Other · 2026-01: 0 commits</title></rect>
+    <rect class="cell-empty" x="346" y="232" width="18" height="18" rx="3"><title>Other · 2026-02: 0 commits</title></rect>
+    <rect class="cell-empty" x="370" y="232" width="18" height="18" rx="3"><title>Other · 2026-03: 0 commits</title></rect>
+    <rect class="cell-empty" x="394" y="232" width="18" height="18" rx="3"><title>Other · 2026-04: 0 commits</title></rect>
+    <rect class="cell-empty" x="418" y="232" width="18" height="18" rx="3"><title>Other · 2026-05: 0 commits</title></rect>
+    <rect class="cell-empty" x="442" y="232" width="18" height="18" rx="3"><title>Other · 2026-06: 0 commits</title></rect>
+    <rect class="cell level-1" x="466" y="232" width="18" height="18" rx="3" fill="#EC4899"><title>Other · 2026-07: 6 commits</title></rect>
+    <text class="total" x="542" y="246" text-anchor="end">6</text>
+  </g>
+</svg>
