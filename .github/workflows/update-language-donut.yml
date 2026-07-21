@@ -40,11 +40,7 @@ jobs:
 
       - name: Generate language donut chart
         id: language-donut
-<<<<<<< Updated upstream
-        uses: KrelinnBios/github-profile-language-donut@latest
-=======
         uses: ./.github/actions/github-profile-language-donut
->>>>>>> Stashed changes
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           config-path: language-donut.config.json
