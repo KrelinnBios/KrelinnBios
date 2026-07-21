@@ -19,3 +19,11 @@
     <img src=./language-donut-e899aea9605a.svg alt=Language distribution donut chart />
   </a>
 </p>
+
+## 📊 Contribution Focus
+
+<p align=left>
+  <a href=https://github.com/KrelinnBios/github-profile-contribution-focus>
+    <img src=./contribution-focus-9809d8868a2a.svg alt=Contribution focus over the last 12 months />
+  </a>
+</p>
