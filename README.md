@@ -24,6 +24,6 @@
 
 <p align=left>
   <a href=https://github.com/KrelinnBios/github-profile-contribution-focus>
-    <img src=./contribution-focus-506b127d44f4.svg alt=Contribution focus over the last 12 months />
+    <img src=./contribution-focus-facbc16c9996.svg alt=Contribution focus over the last 12 months />
   </a>
 </p>
