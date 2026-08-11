@@ -2,6 +2,7 @@
   "owner": "KrelinnBios",
   "excluded_repositories": [],
   "colors": {
+    "KrelinnBios/YamiboPlus": "#3B82F6",
     "KrelinnBios/YamiboReaderLite": "#7F52FF",
     "KrelinnBios/NeoDBLite": "#E34F26",
     "KrelinnBios/AceSurvey": "#F7DF1E",
