@@ -1,6 +1,6 @@
 ﻿# 👋 Bios
 
-### 🌀 Vibe Coding · 🌱 Open Source · 🛠️ Useful Things
+### Vibe Coding · Open Source · Useful Things
 
 把具体想法做成真正可用的开源工具。
 
