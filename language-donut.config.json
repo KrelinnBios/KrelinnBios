@@ -2,6 +2,7 @@
   "owner": "KrelinnBios",
   "profile_repository": "KrelinnBios",
   "excluded_repositories": [],
+  "include_archived": true,
   "max_named_languages": 9,
   "chart": {
     "width": 525,
