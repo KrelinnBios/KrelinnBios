@@ -14,7 +14,7 @@
 ## 💻 Languages
 
 <p align="left">
-  <a href="https://github.com/KrelinnBios/github-profile-language-donut">
+  <a href="https://github.com/KrelinnBios/GitHubProfileLanguageDonut">
     <img src="./language-donut-bc6456ab333e.svg" alt="Language distribution donut chart" />
   </a>
 </p>
@@ -22,7 +22,7 @@
 ## 📊 Contribution Focus
 
 <p align="left">
-  <a href="https://github.com/KrelinnBios/github-profile-contribution-focus">
+  <a href="https://github.com/KrelinnBios/GitHubProfileContributionFocus">
     <img src="./contribution-focus-a8a8ac7c6fec.svg" alt="Contribution focus for GitHub's Last year range" />
   </a>
 </p>
