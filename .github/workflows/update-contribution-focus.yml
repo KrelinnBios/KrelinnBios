@@ -28,6 +28,7 @@ jobs:
       - name: Check out profile repository
         uses: actions/checkout@v7
         with:
+          ref: main
           fetch-depth: 0
 
       - name: Resolve latest contribution focus release
