@@ -10,6 +10,7 @@
 - [NeoDBLite](https://github.com/KrelinnBios/NeoDBLite) — 面向 NeoDB 与兼容实例的非官方 Android 标记客户端
 - [YamiboPlus](https://github.com/KrelinnBios/YamiboPlus) — 面向百合会论坛的非官方原生 Android 客户端
 - [AceSurvey](https://github.com/KrelinnBios/AceSurvey) — 面向无性恋社群的问卷与卡片生成工具
+- [Outvalue](https://outvalue.lol/) — 按公开支持金额实时排序的排名站点
 
 ## 💻 Languages
 
