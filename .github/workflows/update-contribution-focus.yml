@@ -36,6 +36,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          # Keep the profile chart on the newest published action release.
           release_tag=$(gh api \
             repos/KrelinnBios/GitHubProfileContributionFocus/releases/latest \
             --jq '.tag_name')
