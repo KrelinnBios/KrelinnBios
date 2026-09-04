@@ -253,6 +253,27 @@ main {
   margin: 0 auto 48px;
 }
 
+.projects .section-heading {
+  display: block;
+  position: relative;
+  margin-bottom: 26px;
+}
+
+.projects .section-heading .section-index {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.projects .section-heading .repo-count {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.projects .section-heading h2 {
+  font-size: 34px;
+}
+
 .section-heading h2 {
   margin: 0 0 4px;
   font-family: "Noto Sans SC", "Microsoft YaHei", sans-serif;
