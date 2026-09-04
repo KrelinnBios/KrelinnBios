@@ -254,20 +254,32 @@ main {
 }
 
 .projects .section-heading {
-  display: block;
-  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-rows: auto auto;
+  align-items: end;
+  gap: 0 22px;
+  position: static;
   margin-bottom: 26px;
 }
 
 .projects .section-heading .section-index {
+  grid-column: 1 / -1;
+  grid-row: 1;
   display: block;
+  align-self: start;
   margin-bottom: 8px;
 }
 
 .projects .section-heading .repo-count {
-  position: absolute;
-  top: 0;
-  right: 0;
+  grid-column: 2;
+  grid-row: 2;
+  position: static;
+}
+
+.projects .section-heading > div {
+  grid-column: 1;
+  grid-row: 2;
 }
 
 .projects .section-heading h2 {
