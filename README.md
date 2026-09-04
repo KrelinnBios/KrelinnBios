@@ -1,8 +1,8 @@
 # 👋 Bios
 
-### Independent Development · Open Source · Useful Tools
+### Independent Development · Useful Tools
 
-把具体想法做成真正可用的开源工具
+把具体想法做成真正可用的工具与产品
 
 ## 📦 Projects
 
