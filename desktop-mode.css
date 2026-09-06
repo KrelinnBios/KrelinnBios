@@ -5,7 +5,7 @@
  * requests the desktop site. Keep that range on the real desktop layout
  * instead of falling into the tablet/mobile stack.
  */
-@media (min-width: 901px) {
+@media (min-width: 901px) and (max-width: 1100px) {
   body {
     overflow-x: visible;
   }
@@ -32,8 +32,8 @@
   main {
     display: grid;
     grid-template-columns: clamp(340px, 26vw, 500px) minmax(0, 1fr);
-    grid-template-rows: auto 1fr;
-    min-height: 100vh;
+    grid-template-rows: auto auto;
+    min-height: 0;
   }
 
   .hero {
@@ -147,7 +147,7 @@
     grid-column: 1;
     grid-row: 2;
     align-self: stretch;
-    min-height: 100%;
+    min-height: 0;
     padding: 50px 80px 42px;
   }
 
