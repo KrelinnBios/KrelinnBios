@@ -10,6 +10,30 @@
 
 * {
   box-sizing: border-box;
+  scrollbar-width: thin;
+  scrollbar-color: #fff var(--night);
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--night);
+}
+
+*::-webkit-scrollbar-thumb {
+  background: #fff;
+  border: 2px solid var(--ink);
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: var(--acid);
+}
+
+*::-webkit-scrollbar-corner {
+  background: var(--night);
 }
 
 html {
@@ -87,7 +111,6 @@ img {
   font-weight: 900;
   line-height: 1;
   text-align: center;
-  transform: translateX(0.35em);
   white-space: nowrap;
 }
 
@@ -228,6 +251,38 @@ main {
 .portrait-label:focus-visible {
   color: var(--acid);
   outline: none;
+}
+
+.contact-email {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--acid);
+  font-family: "Courier Prime", "Noto Sans SC", "Microsoft YaHei", monospace;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.contact-email-icon {
+  display: block;
+  width: 16px;
+  height: 16px;
+  flex: 0 0 auto;
+  fill: currentColor;
+  transform: translateY(-1px);
+}
+
+.contact-email:hover,
+.contact-email:focus-visible {
+  color: #fff;
+}
+
+.contact-email:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
 }
 
 .projects {
@@ -577,40 +632,32 @@ main {
 }
 
 .site-footer {
-  display: grid;
-  grid-template-columns: 1fr auto auto auto;
+  display: flex;
   align-items: center;
-  gap: 24px;
-  min-height: 52px;
-  padding: 8px clamp(16px, 2.5vw, 40px);
-  color: #b8c2d5;
-  background: var(--night);
-  font-size: 8px;
-  line-height: 1.4;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px clamp(18px, 2.5vw, 40px);
+  color: #fff;
+  background: var(--blue);
+  font-size: 16px;
+}
+
+.footer-note {
+  margin: 0;
+  line-height: 1;
 }
 
 .footer-mark {
   margin: 0;
-  color: #f5f3ec;
+  color: #fff;
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
-  font-size: 25px;
+  font-size: 20px;
+  line-height: 1;
+  letter-spacing: 0.02em;
 }
 
 .footer-mark span {
   color: var(--acid);
-}
-
-.site-footer > p:not(.footer-mark) {
-  margin: 0;
-}
-
-.site-footer > a {
-  display: grid;
-  width: 28px;
-  height: 28px;
-  place-items: center;
-  border: 1px solid #65635f;
-  border-radius: 50%;
 }
 
 @media (max-width: 1080px) {
@@ -794,11 +841,24 @@ main {
   }
 
   .site-footer {
-    grid-template-columns: 1fr auto;
+    gap: 10px;
   }
 
-  .site-footer > p:not(.footer-mark) {
+  .footer-mark {
     display: none;
+  }
+
+  .footer-note {
+    font-size: 12px;
+  }
+
+  .contact-email {
+    font-size: 12px;
+  }
+
+  .contact-email-icon {
+    width: 12px;
+    height: 12px;
   }
 }
 
