@@ -1,4 +1,21 @@
-@media (max-width: 720px), (any-pointer: coarse) and (max-width: 1100px) {
+/*
+ * Responsive layer.
+ *
+ * Desktop is the default layout. Keep the 721–980px range on the desktop
+ * grid as well, because mobile browsers commonly expose ~980px when the
+ * user explicitly requests the desktop site. Only <=720px switches to the
+ * dedicated mobile layout.
+ */
+@media (min-width: 721px) and (max-width: 980px) {
+  main {
+    display: grid;
+    grid-template-columns: clamp(340px, 26vw, 500px) minmax(0, 1fr);
+    grid-template-rows: auto 1fr;
+    min-height: 0;
+  }
+}
+
+@media (max-width: 720px) {
   body {
     overflow-x: hidden;
   }
@@ -271,7 +288,7 @@
   }
 }
 
-@media (any-pointer: coarse) and (max-width: 1100px) {
+@media (hover: none) and (pointer: coarse) and (max-width: 720px) {
   .project-row:hover {
     transform: none;
     color: #f5f3ec;
