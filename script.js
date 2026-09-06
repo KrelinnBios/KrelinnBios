@@ -1,5 +1,14 @@
 const fallbackRepos = [
   {
+    name: "Outvalue",
+    html_url: "https://outvalue.lol/",
+    description: "按公开支持金额实时排序的排名站点。",
+    language: "TypeScript",
+    stargazers_count: 0,
+    archived: false,
+    fork: false,
+  },
+  {
     name: "PrismSelf",
     html_url: "https://prismself.vip/",
     description: "面向性别理论、心理概念与人际关系议题的中文知识库。",
@@ -36,24 +45,6 @@ const fallbackRepos = [
     fork: false,
   },
   {
-    name: "GitHubProfileContributionFocus",
-    html_url: "https://github.com/KrelinnBios/GitHubProfileContributionFocus",
-    description: "按仓库和月份展示 GitHub 近一年贡献重心的可复用 Action。",
-    language: "Python",
-    stargazers_count: 0,
-    archived: false,
-    fork: false,
-  },
-  {
-    name: "GitHubProfileLanguageDonut",
-    html_url: "https://github.com/KrelinnBios/GitHubProfileLanguageDonut",
-    description: "为个人主页生成自动更新、深浅色适配语言占比图的 GitHub Action。",
-    language: "Python",
-    stargazers_count: 0,
-    archived: false,
-    fork: false,
-  },
-  {
     name: "YamiboReaderLite",
     html_url: "https://github.com/KrelinnBios/YamiboReaderLite",
     description: "面向百合会论坛的非官方 Android 阅读客户端。",
@@ -63,9 +54,9 @@ const fallbackRepos = [
     fork: false,
   },
   {
-    name: "Outvalue",
-    html_url: "https://outvalue.lol/",
-    description: "按公开支持金额实时排序的排名站点。",
+    name: "Which Me",
+    html_url: "https://whichme.xyz",
+    description: "面向中英文用户的结构化自我探索测评网站。",
     language: "TypeScript",
     stargazers_count: 0,
     archived: false,
@@ -73,21 +64,31 @@ const fallbackRepos = [
   },
 ];
 
+const projectOrder = fallbackRepos.map((repo) => repo.name);
+
 const languageColors = {
   Kotlin: "#a97bff",
   HTML: "#f06545",
-  JavaScript: "#f7df1e",
   TypeScript: "#4f86e8",
-  Python: "#55b981",
-  CSS: "#49c3dd",
-  Web: "#e9ff38",
 };
-
-const outvalueProject = fallbackRepos.find((repo) => repo.name === "Outvalue");
 
 const projectList = document.querySelector("#project-list");
 const repoCount = document.querySelector("#repo-count");
 const welcomePopup = document.querySelector("#welcome-popup");
+const contactEmail = document.querySelector(".contact-email");
+const copyToast = document.querySelector("#copy-toast");
+
+let copyToastTimer = 0;
+
+function showCopyToast(message) {
+  if (!copyToast) return;
+  copyToast.textContent = message;
+  copyToast.classList.add("is-visible");
+  window.clearTimeout(copyToastTimer);
+  copyToastTimer = window.setTimeout(() => {
+    copyToast.classList.remove("is-visible");
+  }, 1800);
+}
 
 if (welcomePopup) {
   window.setTimeout(() => {
@@ -96,6 +97,31 @@ if (welcomePopup) {
       welcomePopup.hidden = true;
     }, 160);
   }, 2000);
+}
+
+if (contactEmail) {
+  contactEmail.addEventListener("click", async (event) => {
+    event.preventDefault();
+    const address = contactEmail.getAttribute("href").replace(/^mailto:/i, "");
+    try {
+      await navigator.clipboard.writeText(address);
+    } catch (error) {
+      const tempInput = document.createElement("input");
+      tempInput.value = address;
+      document.body.appendChild(tempInput);
+      tempInput.select();
+      document.execCommand("copy");
+      document.body.removeChild(tempInput);
+    }
+    contactEmail.classList.add("is-copied");
+    contactEmail.setAttribute("aria-label", `已复制 ${address} 到剪贴板`);
+    showCopyToast(`已复制邮箱到剪贴板：${address}`);
+    window.clearTimeout(contactEmail._copyTimer);
+    contactEmail._copyTimer = window.setTimeout(() => {
+      contactEmail.classList.remove("is-copied");
+      contactEmail.setAttribute("aria-label", `复制邮箱地址 ${address}`);
+    }, 1400);
+  });
 }
 
 function escapeHtml(value) {
@@ -108,12 +134,18 @@ function cleanDescription(description) {
   return (description || "GitHub 公开仓库").replace(/^(?:可复用的\s*)?GitHub Action[:：]?\s*/u, "");
 }
 
+function orderProjects(repos) {
+  const repoMap = new Map(repos.map((repo) => [repo.name, repo]));
+  const fallbackMap = new Map(fallbackRepos.map((repo) => [repo.name, repo]));
+  const ordered = projectOrder
+    .map((name) => repoMap.get(name) || fallbackMap.get(name))
+    .filter((repo) => repo && !repo.fork && repo.name !== "KrelinnBios");
+
+  return ordered.length > 0 ? ordered : fallbackRepos.slice();
+}
+
 function renderProjects(repos) {
-  const projects = repos.filter((repo) => !repo.fork && repo.name !== "KrelinnBios");
-  if (!projects.some((repo) => repo.name === "Outvalue")) projects.push(outvalueProject);
-  projects.sort((first, second) =>
-    first.name.localeCompare(second.name, "en", { sensitivity: "base" }),
-  );
+  const projects = orderProjects(repos);
 
   repoCount.textContent = projects.length;
   projectList.innerHTML = projects
@@ -165,3 +197,8 @@ async function loadProjects() {
 }
 
 loadProjects();
+
+const footerYear = document.querySelector("#footer-year");
+if (footerYear) {
+  footerYear.textContent = new Date().getFullYear();
+}

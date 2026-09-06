@@ -1,6 +1,6 @@
 # 👋 Bios
 
-### Independent Development · Useful Tools
+### Independent Development · Useful Tools · Vibe Coding
 
 把具体想法做成真正可用的工具与产品
 

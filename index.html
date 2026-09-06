@@ -25,7 +25,9 @@
   <body>
     <a class="skip-link" href="#main">跳到主要内容</a>
 
-    <aside class="welcome-popup is-visible" id="welcome-popup" aria-label="欢迎提示">
+    <div class="copy-toast" id="copy-toast" role="status" aria-live="polite"></div>
+
+    <aside class="welcome-popup" id="welcome-popup" aria-label="欢迎提示">
       <p class="welcome-message">欢迎来到 Bios 的主页!</p>
     </aside>
 
@@ -41,12 +43,7 @@
                 height="460"
               >
             </div>
-            <a class="portrait-label" href="https://github.com/KrelinnBios" target="_blank" rel="noreferrer" aria-label="打开 GitHub 主页 @KrelinnBios">
-              <svg class="portrait-github-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                <path d="M12 .3a12 12 0 0 0-3.79 23.39c.6.11.82-.26.82-.58v-2.05c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.33-1.76-1.33-1.76-1.09-.75.08-.74.08-.74 1.2.08 1.84 1.23 1.84 1.23 1.07 1.83 2.8 1.3 3.48.99.11-.77.42-1.3.76-1.6-2.66-.3-5.46-1.33-5.46-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.66.24 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.8 5.62-5.47 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.69.83.57A12 12 0 0 0 12 .3Z"/>
-              </svg>
-              <span>KrelinnBios</span>
-            </a>
+            <span class="portrait-label">KrelinnBios</span>
           </div>
         </div>
       </section>
@@ -57,7 +54,7 @@
           <div>
             <h2 id="projects-title">全部项目</h2>
           </div>
-          <p class="repo-count"><strong id="repo-count">8</strong> PROJECTS</p>
+          <p class="repo-count"><strong id="repo-count">7</strong> PROJECTS</p>
         </div>
 
         <div class="project-list" id="project-list" aria-live="polite">
@@ -75,38 +72,34 @@
         </div>
 
         <div class="profile-links">
-          <a class="profile-link bilibili" href="https://space.bilibili.com/23446737" target="_blank" rel="noreferrer">
+          <a class="profile-link" href="https://space.bilibili.com/23446737" target="_blank" rel="noreferrer">
             <span class="profile-number">01</span>
             <span class="profile-brand">Bilibili</span>
             <span class="profile-summary">
-              <strong>视频与动态</strong>
               <small>视频与动态</small>
             </span>
           </a>
 
-          <a class="profile-link bangumi" href="https://bgm.tv/user/848699" target="_blank" rel="noreferrer">
+          <a class="profile-link" href="https://bgm.tv/user/848699" target="_blank" rel="noreferrer">
             <span class="profile-number">02</span>
             <span class="profile-brand">Bangumi</span>
             <span class="profile-summary">
-              <strong>1826</strong>
               <small>ACGN 与影视</small>
             </span>
           </a>
 
-          <a class="profile-link neodb" href="https://neodb.social/users/KrelinnBios/" target="_blank" rel="noreferrer">
+          <a class="profile-link" href="https://neodb.social/users/KrelinnBios/" target="_blank" rel="noreferrer">
             <span class="profile-number">03</span>
             <span class="profile-brand">NeoDB</span>
             <span class="profile-summary">
-              <strong>书籍与影视</strong>
               <small>书籍与影视</small>
             </span>
           </a>
 
-          <a class="profile-link steam" href="https://steamcommunity.com/id/KrelinnBios" target="_blank" rel="noreferrer">
+          <a class="profile-link" href="https://steamcommunity.com/id/KrelinnBios" target="_blank" rel="noreferrer">
             <span class="profile-number">04</span>
             <span class="profile-brand">Steam</span>
             <span class="profile-summary">
-              <strong>KrelinnBios</strong>
               <small>游戏与游玩记录</small>
             </span>
           </a>
@@ -116,7 +109,14 @@
 
     <footer class="site-footer" aria-label="页脚">
       <p class="footer-note">© KrelinnBios <span id="footer-year">2026</span></p>
-      <a class="contact-email" href="mailto:bios@krelinnbios.com" aria-label="发送邮件至 bios@krelinnbios.com"><svg class="contact-email-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M2 4h20v16H2V4Zm2 2v.4l8 5.3 8-5.3V6H4Zm16 2.9-8 5.3-8-5.3V18h16V8.9Z"/></svg><span>bios@krelinnbios.com</span></a>
+      <div class="footer-links">
+        <a class="contact-link" href="https://github.com/KrelinnBios" target="_blank" rel="noreferrer" aria-label="打开 GitHub 主页 @KrelinnBios">
+          <svg class="contact-link-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M12 .3a12 12 0 0 0-3.79 23.39c.6.11.82-.26.82-.58v-2.05c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.33-1.76-1.33-1.76-1.09-.75.08-.74.08-.74 1.2.08 1.84 1.23 1.84 1.23 1.07 1.83 2.8 1.3 3.48.99.11-.77.42-1.3.76-1.6-2.66-.3-5.46-1.33-5.46-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.66.24 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.8 5.62-5.47 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.69.83.57A12 12 0 0 0 12 .3Z"/>
+          </svg>
+        </a>
+        <a class="contact-email" href="mailto:bios@krelinnbios.com" aria-label="发送邮件至 bios@krelinnbios.com"><svg class="contact-email-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M2 4h20v16H2V4Zm2 2v.4l8 5.3 8-5.3V6H4Zm16 2.9-8 5.3-8-5.3V18h16V8.9Z"/></svg></a>
+      </div>
       <p class="footer-mark">BIO<span>S</span></p>
     </footer>
 
