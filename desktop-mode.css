@@ -1,0 +1,237 @@
+/*
+ * Desktop-layout guard.
+ *
+ * Android browsers commonly expose a ~980px CSS viewport when the user
+ * requests the desktop site. Keep that range on the real desktop layout
+ * instead of falling into the tablet/mobile stack.
+ */
+@media (min-width: 901px) {
+  body {
+    overflow-x: visible;
+  }
+
+  .copy-toast {
+    max-width: calc(100% - 36px);
+    white-space: nowrap;
+  }
+
+  .welcome-popup {
+    top: 18px;
+    width: fit-content;
+    max-width: calc(100% - 36px);
+    height: 58px;
+    padding: 0 16px;
+  }
+
+  .welcome-message {
+    font-size: 20px;
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  main {
+    display: grid;
+    grid-template-columns: clamp(340px, 26vw, 500px) minmax(0, 1fr);
+    grid-template-rows: auto 1fr;
+    min-height: 100vh;
+  }
+
+  .hero {
+    grid-column: 1;
+    grid-row: 1;
+    min-height: 370px;
+    padding: 0 60px;
+  }
+
+  .portrait-wrap,
+  .portrait-frame {
+    width: 200px;
+  }
+
+  .portrait-wrap::before {
+    top: -26px;
+    right: -26px;
+    width: 26px;
+    height: 26px;
+  }
+
+  .portrait-wrap::after {
+    bottom: 6px;
+    left: -27px;
+    width: 27px;
+    height: 27px;
+  }
+
+  .portrait-label {
+    padding: 10px 8px;
+    font-size: 15px;
+    line-height: 1.25;
+  }
+
+  .projects {
+    grid-column: 2;
+    grid-row: 1 / 3;
+    padding: 54px clamp(48px, 5vw, 100px) 60px;
+  }
+
+  .projects .section-heading {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 0 22px;
+    margin-bottom: 26px;
+  }
+
+  .projects .section-heading .section-index {
+    margin-bottom: 8px;
+    font-size: 16px;
+  }
+
+  .projects .section-heading h2 {
+    font-size: 34px;
+    line-height: 1;
+    text-shadow: 5px 5px 0 var(--blue);
+  }
+
+  .repo-count {
+    font-size: 14px;
+    line-height: normal;
+  }
+
+  .repo-count strong {
+    margin-right: 5px;
+    font-size: 30px;
+    text-shadow: 3px 3px 0 var(--red);
+  }
+
+  .project-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+
+  .project-row {
+    grid-template-columns: 24px minmax(0, 1fr);
+    grid-template-rows: auto 1fr auto;
+    gap: 9px;
+    height: 164px;
+    min-height: 0;
+    padding: 22px 26px;
+    box-shadow: 7px 7px 0 #090817;
+  }
+
+  .project-index {
+    padding-top: 0;
+    font-size: 12px;
+  }
+
+  .project-title {
+    font-size: 20px;
+    line-height: 1.15;
+  }
+
+  .project-description {
+    display: -webkit-box;
+    grid-column: 2;
+    color: #eeeaff;
+    font-size: 16px;
+    line-height: 1.45;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+
+  .project-meta {
+    grid-column: 2;
+    gap: 8px;
+    font-size: 12px;
+  }
+
+  .elsewhere {
+    grid-column: 1;
+    grid-row: 2;
+    align-self: stretch;
+    min-height: 100%;
+    padding: 50px 80px 42px;
+  }
+
+  .elsewhere .section-heading {
+    margin-bottom: 26px;
+  }
+
+  .elsewhere .section-index {
+    margin-bottom: 8px;
+    font-size: 16px;
+  }
+
+  .elsewhere .section-heading h2 {
+    font-size: 34px;
+    line-height: 1;
+    text-shadow: 4px 4px 0 var(--acid);
+  }
+
+  .profile-links {
+    display: block;
+    gap: 0;
+  }
+
+  .profile-link {
+    display: grid;
+    grid-template-columns: 32px minmax(0, 1fr);
+    grid-template-rows: auto auto;
+    gap: 9px 0;
+    min-height: 96px;
+    padding: 14px;
+    margin-bottom: 16px;
+    box-shadow: 7px 7px 0 var(--ink);
+  }
+
+  .profile-number {
+    display: block;
+    grid-row: 1 / 3;
+    align-self: auto;
+    padding-top: 0;
+    font-size: 12px;
+  }
+
+  .profile-brand {
+    font-size: 24px;
+    line-height: normal;
+    white-space: normal;
+  }
+
+  .profile-summary {
+    display: block;
+    font-size: 14px;
+    line-height: 1.35;
+  }
+
+  .site-footer {
+    min-height: 0;
+    padding: 18px clamp(18px, 2.5vw, 40px);
+  }
+
+  .footer-links {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    gap: 14px;
+    margin-left: 0;
+    transform: translate(-50%, calc(-50% + 1px));
+  }
+
+  .footer-note {
+    font-size: 16px;
+    line-height: 1;
+    transform: translateY(3px);
+  }
+
+  .contact-email,
+  .contact-link {
+    width: auto;
+    height: auto;
+    padding: 6px;
+  }
+
+  .contact-email-icon,
+  .contact-link-icon {
+    width: 20px;
+    height: 20px;
+  }
+}
