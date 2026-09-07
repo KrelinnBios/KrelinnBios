@@ -37,7 +37,7 @@ const fallbackRepos = [
   },
   {
     name: "AceSurvey",
-    html_url: "https://github.com/KrelinnBios/AceSurvey",
+    html_url: "https://survey.prismself.vip",
     description: "面向无性恋社群的问卷与卡片生成工具。",
     language: "HTML",
     stargazers_count: 0,
@@ -154,7 +154,12 @@ function renderProjects(repos) {
       const color = languageColors[repo.language] || "#8b949e";
       const archiveLabel = repo.archived ? '<span class="archived">ARCHIVED</span>' : "";
       const description = cleanDescription(repo.description);
-      const projectUrl = repo.name === "PrismSelf" ? "https://prismself.vip/" : repo.html_url;
+      const projectUrl =
+        repo.name === "PrismSelf"
+          ? "https://prismself.vip/"
+          : repo.name === "AceSurvey"
+            ? "https://survey.prismself.vip"
+            : repo.html_url;
 
       return `
         <a class="project-row" href="${escapeHtml(projectUrl)}" target="_blank" rel="noreferrer">

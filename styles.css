@@ -596,9 +596,7 @@ main {
   text-shadow: 4px 4px 0 var(--acid);
 }
 
-.elsewhere .section-heading div p {
-  display: none;
-}
+
 
 .profile-links {
   padding-top: 0;
