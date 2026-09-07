@@ -21,7 +21,7 @@
    - `./styles.css?v=<新版号>`
    - `./mobile.css?v=<新版号>`
    - `./script.js?v=<新版号>`
-3. 新版号推荐格式：`YYYYMMDDX`（日期+序号，例如 `202609081`）或 12 位 git short hash。
+3. 新版号推荐格式：`YYYYMMDDX`（日期 + 序号，例如 `202609081`）。
 4. 4 处必须保持一致。
 5. 再执行 `git commit / push`。
 
@@ -29,9 +29,9 @@
 
 ### 为什么必须这样做
 
-- HTML 通过 `<meta http-equiv="Cache-Control">` 控制不缓存，但 CSS/JS/IMG 仍会被浏览器缓存。
-- 只有资源 URL 变化（即 query string `?v=` 不同）时，浏览器才会强制重新下载。
-- 漏改版本号会导致用户访问时仍看到旧的 CSS/JS 效果。
+- HTML 通过 `<meta http-equiv="Cache-Control">` 已设为不缓存，但 CSS / JS / 图片仍会被浏览器缓存。
+- 只有资源 URL 发生变化（即 query string `?v=` 取值不同）时，浏览器才会强制重新下载对应资源。
+- 漏改版本号会导致用户访问站点时仍加载旧的 CSS / JS 效果，出现与本地修改后线上不一致的问题。
 
 ---
 
