@@ -1,0 +1,65 @@
+name: Bust static asset cache
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "index.html"
+      - "styles.css"
+      - "mobile.css"
+      - "script.js"
+      - "favicon.svg"
+
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: bust-cache-version
+  cancel-in-progress: false
+
+jobs:
+  version:
+    if: "!contains(github.event.head_commit.message, '[skip cache-version]')"
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+        with:
+          ref: main
+          fetch-depth: 2
+
+      - name: Rewrite asset query-string versions in index.html
+        id: inject
+        run: |
+          version=${GITHUB_SHA::12}
+          echo "Using cache version: ${version}"
+
+          before=$(sha256sum index.html | awk '{print $1}')
+          sed -i -E \
+            -e "s|(\./(styles|mobile)\.css\?v=)[a-zA-Z0-9_-]*|\1${version}|g" \
+            -e "s|(\./script\.js\?v=)[a-zA-Z0-9_-]*|\1${version}|g" \
+            -e "s|(\./favicon\.svg\?v=)[a-zA-Z0-9_-]*|\1${version}|g" \
+            index.html
+          after=$(sha256sum index.html | awk '{print $1}')
+
+          if [ "$before" != "$after" ]; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Commit version bump
+        if: steps.inject.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add index.html
+          git commit -m "Bust cache: update asset version [skip cache-version]"
+
+          git pull --rebase origin main
+          git push origin HEAD:main
