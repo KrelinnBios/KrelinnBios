@@ -190,7 +190,7 @@
     min-width: 0;
     overflow: hidden;
     font-size: 16px;
-    line-height: 1.15;
+    line-height: 1.2;
     text-overflow: ellipsis;
     white-space: nowrap;
   }
@@ -306,11 +306,27 @@
     color: #eeeaff;
   }
 
-  .profile-link:hover {
+  .profile-link:hover:not(:active) {
     transform: none;
     color: var(--ink);
     background: #fff;
     border-color: var(--ink);
     box-shadow: 5px 5px 0 var(--ink);
+  }
+
+  .profile-link:hover:not(:active) .profile-brand {
+    color: var(--ink);
+  }
+
+  .profile-link:hover:not(:active) .profile-summary {
+    color: var(--muted);
+  }
+
+  .profile-link:active {
+    transform: none;
+    color: var(--profile-active-text, #fff);
+    background: var(--profile-active-color, var(--profile-color, #fff));
+    border-color: var(--ink);
+    box-shadow: 1px 1px 0 var(--ink);
   }
 }

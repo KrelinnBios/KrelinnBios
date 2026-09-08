@@ -45,6 +45,15 @@ const fallbackRepos = [
     fork: false,
   },
   {
+    name: "Toolbox",
+    html_url: "https://toolbox.krelinnbios.com/",
+    description: "代替浏览器收藏夹的个人工具导航站。",
+    language: "HTML",
+    stargazers_count: 0,
+    archived: false,
+    fork: false,
+  },
+  {
     name: "YamiboReaderLite",
     html_url: "https://github.com/KrelinnBios/YamiboReaderLite",
     description: "面向百合会论坛的非官方 Android 阅读客户端。",
@@ -159,7 +168,9 @@ function renderProjects(repos) {
           ? "https://prismself.vip/"
           : repo.name === "AceSurvey"
             ? "https://survey.prismself.vip"
-            : repo.html_url;
+            : repo.name === "Toolbox"
+              ? "https://toolbox.krelinnbios.com/"
+              : repo.html_url;
 
       return `
         <a class="project-row" href="${escapeHtml(projectUrl)}" target="_blank" rel="noreferrer">

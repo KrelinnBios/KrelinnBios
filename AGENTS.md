@@ -1,6 +1,6 @@
-# AGENTS 维护手册
+# KrelinnBios 项目维护指南
 
-本文件面向参与本仓库开发的 AI Agent，记录项目特有的维护流程和注意事项。
+本文档面向仓库维护者与自动化编码代理，记录 KrelinnBios 项目特有的修改流程、代码风格与发布规范。
 
 ---
 
@@ -27,7 +27,7 @@
 
 > 只改动 HTML 不需要更新版本号。
 
-### 为什么必须这样做
+### 原因说明
 
 - HTML 通过 `<meta http-equiv="Cache-Control">` 已设为不缓存，但 CSS / JS / 图片仍会被浏览器缓存。
 - 只有资源 URL 发生变化（即 query string `?v=` 取值不同）时，浏览器才会强制重新下载对应资源。
@@ -37,12 +37,13 @@
 
 ## 二、项目 URL 特殊映射
 
-`script.js` 中 `fallbackRepos` 数组和 `renderProjects` 函数里，有**两个项目的展示链接固定指向部署站点**而非 GitHub 仓库。修改这些项目名称或新增同类项目时请注意同步更新：
+`script.js` 中 `fallbackRepos` 数组和 `renderProjects` 函数里，有**部分项目的展示链接固定指向部署站点**而非 GitHub 仓库。修改这些项目名称或新增同类项目时请注意同步更新：
 
 | 项目名称 | 展示链接（用户点击跳转） |
 |---|---|
 | PrismSelf | https://prismself.vip/ |
 | AceSurvey | https://survey.prismself.vip |
+| Toolbox | https://toolbox.krelinnbios.com/ |
 
 - `fallbackRepos` 是 GitHub API 加载失败时的兜底数据。
 - `renderProjects` 中针对项目名称的三元判断是强制覆盖，优先级高于 GitHub API 返回的 `html_url`。

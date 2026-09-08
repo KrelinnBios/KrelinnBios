@@ -633,11 +633,34 @@ main {
   transition: transform 120ms steps(2, end), color 120ms steps(2, end), background 120ms steps(2, end), box-shadow 120ms steps(2, end);
 }
 
+.profile-link:nth-child(4n + 1) {
+  --profile-color: #ffed72;
+  --profile-active-color: var(--acid);
+  --profile-active-text: var(--ink);
+}
+
+.profile-link:nth-child(4n + 2) {
+  --profile-color: #ffc5ce;
+  --profile-active-color: var(--red);
+}
+
+.profile-link:nth-child(4n + 3) {
+  --profile-color: #bfeedb;
+  --profile-active-color: #00a68c;
+}
+
+.profile-link:nth-child(4n + 4) {
+  --profile-color: #cbd5ff;
+  --profile-active-color: var(--blue);
+}
+
 .profile-link:hover,
-.profile-link:focus-visible {
+.profile-link:focus-visible,
+.profile-link:active {
   transform: translate(5px, 5px);
   outline: none;
-  background: var(--acid);
+  background: var(--profile-active-color, var(--profile-color, #fff));
+  color: var(--profile-active-text, #fff);
   border-color: var(--ink);
   box-shadow: 2px 2px 0 var(--ink);
 }
@@ -647,15 +670,50 @@ main {
   box-shadow: 0 0 0 var(--ink);
 }
 
+.profile-link:hover .profile-brand,
+.profile-link:focus-visible .profile-brand,
+.profile-link:active .profile-brand,
+.profile-link:hover .profile-summary,
+.profile-link:focus-visible .profile-summary,
+.profile-link:active .profile-summary {
+  color: var(--profile-active-text, #fff);
+}
+
+.tools-entry {
+  --profile-color: #e8ecff;
+  --profile-active-color: var(--blue);
+}
+
+.tools-entry:hover,
+.tools-entry:focus-visible,
+.tools-entry:active {
+  background: var(--blue);
+  border-color: var(--ink);
+  box-shadow: 2px 2px 0 var(--ink);
+}
+
+.tools-entry:hover .profile-brand,
+.tools-entry:focus-visible .profile-brand,
+.tools-entry:active .profile-brand,
+.tools-entry:hover .profile-summary,
+.tools-entry:focus-visible .profile-summary,
+.tools-entry:active .profile-summary {
+  color: #fff;
+}
+
 .profile-number {
   grid-row: 1 / 3;
   font-size: 12px;
 }
 
 .profile-brand {
+  min-width: 0;
+  overflow-wrap: anywhere;
   font-family: "Courier Prime", monospace;
-  font-size: 24px;
+  font-size: 17px;
   font-weight: 700;
+  line-height: 1.2;
+  color: var(--ink);
 }
 
 .profile-summary {
