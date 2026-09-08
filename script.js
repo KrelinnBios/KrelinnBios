@@ -66,7 +66,7 @@ const fallbackRepos = [
     name: "Which Me",
     html_url: "https://whichme.xyz",
     description: "面向中英文用户的结构化自我探索测评网站。",
-    language: "TypeScript",
+    language: "JavaScript",
     stargazers_count: 0,
     archived: false,
     fork: false,
@@ -79,6 +79,7 @@ const languageColors = {
   Kotlin: "#a97bff",
   HTML: "#f06545",
   TypeScript: "#4f86e8",
+  JavaScript: "#f1e05a",
 };
 
 const projectList = document.querySelector("#project-list");
