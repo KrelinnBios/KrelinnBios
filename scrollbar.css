@@ -1,7 +1,7 @@
 :root {
-  --scrollbar-thumb: var(--acid);
-  --scrollbar-thumb-hover: #fff36b;
-  --scrollbar-thumb-active: #d8ca26;
+  --scrollbar-thumb: #fff;
+  --scrollbar-thumb-hover: #fff;
+  --scrollbar-thumb-active: #fff;
 }
 
 * {
@@ -16,18 +16,18 @@
 
 *::-webkit-scrollbar-track,
 *::-webkit-scrollbar-corner {
-  background: transparent;
+  background: transparent !important;
 }
 
 *::-webkit-scrollbar-thumb {
-  background: var(--scrollbar-thumb);
+  background: var(--scrollbar-thumb) !important;
   border: 0;
 }
 
 *::-webkit-scrollbar-thumb:hover {
-  background: var(--scrollbar-thumb-hover);
+  background: var(--scrollbar-thumb-hover) !important;
 }
 
 *::-webkit-scrollbar-thumb:active {
-  background: var(--scrollbar-thumb-active);
+  background: var(--scrollbar-thumb-active) !important;
 }
