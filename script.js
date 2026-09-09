@@ -280,7 +280,7 @@ function initializeScrollbar() {
     scrollTimer = setTimeout(() => {
       thumbVisible = false;
       scheduleUpdate();
-    }, 1500);
+    }, 500);
   }
 
   thumb.addEventListener("pointerdown", (event) => {
