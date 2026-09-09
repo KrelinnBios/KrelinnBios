@@ -219,3 +219,89 @@ const footerYear = document.querySelector("#footer-year");
 if (footerYear) {
   footerYear.textContent = new Date().getFullYear();
 }
+
+function initializeScrollbar() {
+  if (!window.ResizeObserver || !window.PointerEvent) return;
+
+  const root = document.documentElement;
+  const thumb = document.createElement("div");
+  thumb.className = "page-scrollbar";
+  thumb.tabIndex = 0;
+  thumb.setAttribute("role", "scrollbar");
+  thumb.setAttribute("aria-label", "页面滚动条");
+  thumb.setAttribute("aria-controls", "main");
+  thumb.setAttribute("aria-orientation", "vertical");
+  thumb.setAttribute("aria-valuemin", "0");
+  document.body.appendChild(thumb);
+
+  let frame = 0;
+  let drag = null;
+
+  function measure() {
+    const height = root.clientHeight;
+    const range = Math.max(0, root.scrollHeight - height);
+    const size = Math.min(height, Math.max(32, height * height / root.scrollHeight));
+    return { range, size, travel: height - size };
+  }
+
+  function update() {
+    frame = 0;
+    const { range, size, travel } = measure();
+    const position = Math.max(0, Math.min(range, window.scrollY));
+    thumb.hidden = range === 0;
+    thumb.style.height = `${size}px`;
+    thumb.style.transform = `translateY(${range ? position / range * travel : 0}px)`;
+    thumb.setAttribute("aria-valuemax", String(Math.round(range)));
+    thumb.setAttribute("aria-valuenow", String(Math.round(position)));
+  }
+
+  function scheduleUpdate() {
+    if (!frame) frame = window.requestAnimationFrame(update);
+  }
+
+  thumb.addEventListener("pointerdown", (event) => {
+    if (event.button !== 0 || !event.isPrimary) return;
+    event.preventDefault();
+    thumb.setPointerCapture(event.pointerId);
+    drag = { pointerId: event.pointerId, offset: event.clientY - thumb.getBoundingClientRect().top };
+    thumb.classList.add("is-dragging");
+  });
+
+  thumb.addEventListener("pointermove", (event) => {
+    if (!drag || drag.pointerId !== event.pointerId) return;
+    const { range, travel } = measure();
+    const position = Math.max(0, Math.min(travel, event.clientY - drag.offset));
+    window.scrollTo({ top: travel ? position / travel * range : 0, behavior: "instant" });
+  });
+
+  function stopDragging() {
+    drag = null;
+    thumb.classList.remove("is-dragging");
+  }
+
+  thumb.addEventListener("pointerup", stopDragging);
+  thumb.addEventListener("pointercancel", stopDragging);
+  thumb.addEventListener("lostpointercapture", stopDragging);
+  thumb.addEventListener("keydown", (event) => {
+    const { range } = measure();
+    const targets = {
+      ArrowUp: window.scrollY - 40,
+      ArrowDown: window.scrollY + 40,
+      PageUp: window.scrollY - root.clientHeight,
+      PageDown: window.scrollY + root.clientHeight,
+      Home: 0,
+      End: range,
+    };
+    if (!(event.key in targets)) return;
+    event.preventDefault();
+    window.scrollTo({ top: Math.max(0, Math.min(range, targets[event.key])), behavior: "instant" });
+  });
+
+  window.addEventListener("scroll", scheduleUpdate, { passive: true });
+  window.addEventListener("resize", scheduleUpdate);
+  new ResizeObserver(scheduleUpdate).observe(document.body);
+  root.classList.add("has-page-scrollbar");
+  update();
+}
+
+initializeScrollbar();

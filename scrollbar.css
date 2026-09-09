@@ -1,23 +1,81 @@
+:root {
+  --scrollbar-thumb: #fff;
+  --scrollbar-thumb-hover: var(--acid);
+}
+
 * {
   scrollbar-width: thin;
-  scrollbar-color: #fff transparent;
+  scrollbar-color: var(--scrollbar-thumb) transparent;
+}
+
+@supports selector(::-webkit-scrollbar) {
+  * {
+    scrollbar-width: auto;
+    scrollbar-color: auto;
+  }
 }
 
 *::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
+  width: 6px;
+  height: 6px;
+  background: transparent;
 }
 
 *::-webkit-scrollbar-track,
 *::-webkit-scrollbar-corner {
-  background: transparent !important;
+  background: transparent;
 }
 
 *::-webkit-scrollbar-thumb {
-  background: #fff !important;
-  border: 2px solid var(--ink) !important;
+  background: var(--scrollbar-thumb);
+  border-radius: 999px;
 }
 
-*::-webkit-scrollbar-thumb:hover {
-  background: var(--acid) !important;
+*::-webkit-scrollbar-button {
+  display: none;
+}
+
+*::-webkit-scrollbar-thumb:hover,
+*::-webkit-scrollbar-thumb:active {
+  background: var(--scrollbar-thumb-hover);
+}
+
+.page-scrollbar {
+  display: none;
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  right: 0;
+  width: 6px;
+  border-radius: 999px;
+  background: var(--scrollbar-thumb);
+  touch-action: none;
+  user-select: none;
+}
+
+.page-scrollbar:hover,
+.page-scrollbar.is-dragging,
+.page-scrollbar:focus-visible {
+  background: var(--scrollbar-thumb-hover);
+}
+
+.page-scrollbar:focus-visible {
+  outline: 1px solid var(--scrollbar-thumb-hover);
+  outline-offset: 2px;
+}
+
+@media (forced-colors: none) {
+  html.has-page-scrollbar,
+  html.has-page-scrollbar body {
+    scrollbar-width: none;
+  }
+
+  html.has-page-scrollbar::-webkit-scrollbar,
+  html.has-page-scrollbar body::-webkit-scrollbar {
+    display: none;
+  }
+
+  .has-page-scrollbar .page-scrollbar:not([hidden]) {
+    display: block;
+  }
 }
