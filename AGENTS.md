@@ -9,6 +9,7 @@ KrelinnBios 是个人主页与 GitHub Profile 展示仓库，页面由原生 HTM
 - `index.html`：页面结构、兴趣档案与静态资源引用。
 - `styles.css`：桌面端与通用样式。
 - `mobile.css`：移动端响应式样式。
+- `scrollbar.css`：页面滚动条主题与跨浏览器样式。
 - `script.js`：GitHub 项目读取、兜底数据与页面交互。
 - `favicon.svg`：站点图标。
 
@@ -47,6 +48,8 @@ KrelinnBios 是个人主页与 GitHub Profile 展示仓库，页面由原生 HTM
 ./script.js?v=<新版号>
 ```
 
+`scrollbar.css` 使用独立版本号；修改该文件时，只需同步更新 `index.html` 中 `scrollbar.css?v=` 的版本引用。
+
 只修改 `index.html` 内容本身时，不需要更新版本号。
 
 #### 原因说明
@@ -78,6 +81,7 @@ KrelinnBios 是个人主页与 GitHub Profile 展示仓库，页面由原生 HTM
 - 项目名称、描述和跳转地址符合预期。
 - 桌面宽屏、常见移动端宽度以及移动浏览器“桌面版网站”模式下没有明显错位或异常拉伸。
 - 修改共享资源后，`index.html` 中四个版本号已同步更新。
+- 修改 `scrollbar.css` 后，其独立版本号已同步更新。
 
 纯文档修改无需额外运行构建或测试；本项目没有构建步骤。
 
