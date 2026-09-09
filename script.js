@@ -304,4 +304,35 @@ function initializeScrollbar() {
   update();
 }
 
+function installMobileScrollbarAutoHide() {
+  // 检测是否为触控设备
+  const isTouchDevice = window.matchMedia && (
+    window.matchMedia('(hover: none)').matches ||
+    window.matchMedia('(pointer: coarse)').matches
+  );
+
+  if (!isTouchDevice) return;
+
+  let scrollTimer = null;
+  let isScrolling = false;
+
+  function showScrollbar() {
+    if (!isScrolling) {
+      isScrolling = true;
+      document.documentElement.classList.add('is-scrolling');
+    }
+
+    if (scrollTimer) clearTimeout(scrollTimer);
+
+    scrollTimer = setTimeout(() => {
+      isScrolling = false;
+      document.documentElement.classList.remove('is-scrolling');
+    }, 1500);
+  }
+
+  window.addEventListener('scroll', showScrollbar, { passive: true });
+  window.addEventListener('touchmove', showScrollbar, { passive: true });
+}
+
 initializeScrollbar();
+installMobileScrollbarAutoHide();
