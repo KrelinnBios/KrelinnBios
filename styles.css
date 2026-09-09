@@ -6,10 +6,87 @@
   --red: #d94355;
   --blue: #4455c9;
   --night: #151329;
+  --krelinn-scrollbar-source: var(--acid, #f5e641);
+  --krelinn-scrollbar-thumb: #fff;
+  --krelinn-scrollbar-thumb-hover: var(--krelinn-scrollbar-source);
 }
 
 * {
   box-sizing: border-box;
+  scrollbar-width: thin;
+  scrollbar-color: var(--krelinn-scrollbar-thumb) transparent;
+}
+
+@supports selector(::-webkit-scrollbar) {
+  * {
+    scrollbar-width: auto;
+    scrollbar-color: auto;
+  }
+}
+
+*::-webkit-scrollbar {
+  width: 6px !important;
+  height: 6px !important;
+  background: transparent !important;
+}
+
+*::-webkit-scrollbar-track,
+*::-webkit-scrollbar-corner {
+  background: transparent !important;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--krelinn-scrollbar-thumb) !important;
+  border-radius: 999px !important;
+}
+
+*::-webkit-scrollbar-button {
+  display: none !important;
+}
+
+*::-webkit-scrollbar-thumb:hover,
+*::-webkit-scrollbar-thumb:active {
+  background: var(--krelinn-scrollbar-thumb-hover) !important;
+}
+
+.page-scrollbar {
+  display: none;
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  right: 0;
+  width: 6px;
+  border-radius: 999px;
+  background: var(--krelinn-scrollbar-thumb);
+  touch-action: none;
+  user-select: none;
+}
+
+.page-scrollbar:hover,
+.page-scrollbar.is-dragging,
+.page-scrollbar:focus-visible {
+  background: var(--krelinn-scrollbar-thumb-hover);
+}
+
+.page-scrollbar:focus-visible {
+  outline: 1px solid var(--krelinn-scrollbar-thumb-hover);
+  outline-offset: 2px;
+}
+
+@media (forced-colors: none) {
+  html.has-page-scrollbar,
+  html.has-page-scrollbar body {
+    scrollbar-width: none;
+  }
+
+  html.has-page-scrollbar::-webkit-scrollbar,
+  html.has-page-scrollbar body::-webkit-scrollbar {
+    display: none;
+  }
+
+  .has-page-scrollbar .page-scrollbar:not([hidden]) {
+    display: block;
+  }
 }
 
 html {
