@@ -236,6 +236,12 @@ function initializeScrollbar() {
 
   let frame = 0;
   let drag = null;
+  const isTouchDevice = window.matchMedia && (
+    window.matchMedia('(hover: none)').matches ||
+    window.matchMedia('(pointer: coarse)').matches
+  );
+  let scrollTimer = null;
+  let thumbVisible = false;
 
   function measure() {
     const height = root.clientHeight;
@@ -248,7 +254,14 @@ function initializeScrollbar() {
     frame = 0;
     const { range, size, travel } = measure();
     const position = Math.max(0, Math.min(range, window.scrollY));
-    thumb.hidden = range === 0;
+
+    // 移动端：仅在滚动时显示
+    if (isTouchDevice && !drag) {
+      thumb.hidden = range === 0 || !thumbVisible;
+    } else {
+      thumb.hidden = range === 0;
+    }
+
     thumb.style.height = `${size}px`;
     thumb.style.transform = `translateY(${range ? position / range * travel : 0}px)`;
     thumb.setAttribute("aria-valuemax", String(Math.round(range)));
@@ -257,6 +270,17 @@ function initializeScrollbar() {
 
   function scheduleUpdate() {
     if (!frame) frame = window.requestAnimationFrame(update);
+  }
+
+  function showThumb() {
+    if (!isTouchDevice) return;
+    thumbVisible = true;
+    if (scrollTimer) clearTimeout(scrollTimer);
+    scheduleUpdate();
+    scrollTimer = setTimeout(() => {
+      thumbVisible = false;
+      scheduleUpdate();
+    }, 1500);
   }
 
   thumb.addEventListener("pointerdown", (event) => {
@@ -298,41 +322,12 @@ function initializeScrollbar() {
   });
 
   window.addEventListener("scroll", scheduleUpdate, { passive: true });
+  window.addEventListener("scroll", showThumb, { passive: true });
+  window.addEventListener("touchmove", showThumb, { passive: true });
   window.addEventListener("resize", scheduleUpdate);
   new ResizeObserver(scheduleUpdate).observe(document.body);
   root.classList.add("has-page-scrollbar");
   update();
 }
 
-function installMobileScrollbarAutoHide() {
-  // 检测是否为触控设备
-  const isTouchDevice = window.matchMedia && (
-    window.matchMedia('(hover: none)').matches ||
-    window.matchMedia('(pointer: coarse)').matches
-  );
-
-  if (!isTouchDevice) return;
-
-  let scrollTimer = null;
-  let isScrolling = false;
-
-  function showScrollbar() {
-    if (!isScrolling) {
-      isScrolling = true;
-      document.documentElement.classList.add('is-scrolling');
-    }
-
-    if (scrollTimer) clearTimeout(scrollTimer);
-
-    scrollTimer = setTimeout(() => {
-      isScrolling = false;
-      document.documentElement.classList.remove('is-scrolling');
-    }, 1500);
-  }
-
-  window.addEventListener('scroll', showScrollbar, { passive: true });
-  window.addEventListener('touchmove', showScrollbar, { passive: true });
-}
-
 initializeScrollbar();
-installMobileScrollbarAutoHide();
