@@ -36,6 +36,15 @@ const fallbackRepos = [
     fork: false,
   },
   {
+    name: "Bgm2NeoDB",
+    html_url: "https://github.com/KrelinnBios/Bgm2NeoDB",
+    description: "将 Bangumi 收藏迁移到 NeoDB 的本地网页工具。",
+    language: "HTML",
+    stargazers_count: 0,
+    archived: false,
+    fork: false,
+  },
+  {
     name: "AceSurvey",
     html_url: "https://survey.prismself.vip",
     description: "面向无性恋社群的问卷与卡片生成工具。",
