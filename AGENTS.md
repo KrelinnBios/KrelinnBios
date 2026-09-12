@@ -64,9 +64,9 @@ KrelinnBios 是个人主页与 GitHub Profile 展示仓库，页面由原生 HTM
 
 | 项目 | 展示链接 |
 | --- | --- |
-| PrismSelf | https://prismself.vip/ |
-| AceSurvey | https://survey.prismself.vip |
-| Toolbox | https://toolbox.krelinnbios.com/ |
+| PrismSelf | <https://prismself.vip/> |
+| AceSurvey | <https://survey.prismself.vip> |
+| Toolbox | <https://toolbox.krelinnbios.com/> |
 
 - `fallbackRepos` 保存 GitHub API 加载失败时的兜底数据。
 - `renderProjects` 中针对项目名称的链接覆盖优先于 GitHub API 返回的 `html_url`。
