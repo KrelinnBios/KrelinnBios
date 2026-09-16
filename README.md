@@ -24,6 +24,6 @@
 
 <p align="left">
   <a href="https://github.com/KrelinnBios/GitHubProfileContributionFocus">
-    <img src="./contribution-focus-2eb68d1a2734.svg" alt="Contribution focus for GitHub's Last year range" />
+    <img src="./contribution-focus-cd666820bee8.svg" alt="Contribution focus for GitHub's Last year range" />
   </a>
 </p>
