@@ -429,6 +429,13 @@ main {
     linear-gradient(rgba(151, 145, 196, 0.1) 1px, transparent 1px),
     linear-gradient(90deg, rgba(151, 145, 196, 0.1) 1px, transparent 1px);
   background-size: 40px 40px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: none;
+}
+
+.projects::-webkit-scrollbar {
+  display: none;
 }
 
 .section-heading {
@@ -511,7 +518,7 @@ main {
 
 .project-list {
   display: grid;
-  flex: 1;
+  flex: none;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   width: 100%;
   max-width: 1160px;
@@ -519,13 +526,6 @@ main {
   gap: 18px;
   height: auto;
   min-height: 0;
-  overflow-y: auto;
-  overscroll-behavior: auto;
-  scrollbar-width: none;
-}
-
-.project-list::-webkit-scrollbar {
-  display: none;
 }
 
 .project-row {
@@ -663,7 +663,7 @@ main {
   flex-direction: column;
   min-height: 0;
   box-sizing: border-box;
-  padding: 50px 80px 0;
+  padding: 60px 80px 0;
   background: var(--paper);
   background-image:
     linear-gradient(rgba(35, 35, 50, 0.13) 1px, transparent 1px),
@@ -711,13 +711,9 @@ main {
 
 .graveyard {
   box-sizing: border-box;
-  margin: 36px -80px 0;
+  margin: 14px -80px 0;
   padding: 36px 80px 42px;
-  background: var(--paper);
-  background-image:
-    linear-gradient(rgba(35, 35, 50, 0.13) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(35, 35, 50, 0.13) 1px, transparent 1px);
-  background-size: 40px 40px, 40px 40px;
+  background: transparent;
   border-top: none;
 }
 
@@ -756,58 +752,36 @@ main {
 
 .graveyard-csdn:hover,
 .graveyard-csdn:focus-visible {
-  background: #ff6b35 !important;
+  background: #fc5531 !important;
   color: #fff !important;
 }
 
 .graveyard-csdn:active {
-  background: #ff6b35 !important;
+  background: #fc5531 !important;
   color: #fff !important;
 }
 
-.graveyard-csdn:hover .profile-brand,
-.graveyard-csdn:focus-visible .profile-brand,
-.graveyard-csdn:hover .profile-summary,
-.graveyard-csdn:focus-visible .profile-summary {
-  color: #fff;
-}
-
-.graveyard-csdn:active .profile-brand,
-.graveyard-csdn:active .profile-summary,
-.graveyard-csdn:active .profile-number {
-  color: #fff !important;
-}
-
+.graveyard-csdn:hover *,
+.graveyard-csdn:focus-visible *,
 .graveyard-csdn:active * {
   color: #fff !important;
 }
 
 .graveyard-bangumi:hover,
 .graveyard-bangumi:focus-visible {
-  background: #ff69b4 !important;
-  color: #fff !important;
+  background: #f09199 !important;
+  color: var(--ink) !important;
 }
 
 .graveyard-bangumi:active {
-  background: #ff69b4 !important;
-  color: #fff !important;
+  background: #f09199 !important;
+  color: var(--ink) !important;
 }
 
-.graveyard-bangumi:hover .profile-brand,
-.graveyard-bangumi:focus-visible .profile-brand,
-.graveyard-bangumi:hover .profile-summary,
-.graveyard-bangumi:focus-visible .profile-summary {
-  color: #fff;
-}
-
-.graveyard-bangumi:active .profile-brand,
-.graveyard-bangumi:active .profile-summary,
-.graveyard-bangumi:active .profile-number {
-  color: #fff !important;
-}
-
+.graveyard-bangumi:hover *,
+.graveyard-bangumi:focus-visible *,
 .graveyard-bangumi:active * {
-  color: #fff !important;
+  color: var(--ink) !important;
 }
 
 
@@ -853,8 +827,8 @@ main {
 
 .profile-link:nth-child(4n + 1) {
   --profile-color: #ffed72;
-  --profile-active-color: var(--acid);
-  --profile-active-text: var(--ink);
+  --profile-active-color: #fb7299;
+  --profile-active-text: #fff;
 }
 
 .profile-link:nth-child(4n + 2) {
@@ -872,6 +846,36 @@ main {
   --profile-active-color: var(--blue);
 }
 
+.profile-links .profile-bilibili {
+  --profile-active-color: #00aeec;
+  --profile-active-border: #007aa3;
+  --profile-active-text: #fff;
+}
+
+.profile-links .profile-neodb {
+  --profile-active-color: #0172ad;
+  --profile-active-border: #00527d;
+  --profile-active-text: #fff;
+}
+
+.profile-links .profile-steam {
+  --profile-active-color: #1b2838;
+  --profile-active-border: #0c141d;
+  --profile-active-text: #fff;
+}
+
+.graveyard-links .graveyard-csdn {
+  --profile-active-color: #fc5531;
+  --profile-active-border: #b53a24;
+  --profile-active-text: #fff;
+}
+
+.graveyard-links .graveyard-bangumi {
+  --profile-active-color: #f09199;
+  --profile-active-border: #a95761;
+  --profile-active-text: var(--ink);
+}
+
 .profile-link:hover,
 .profile-link:focus-visible,
 .profile-link:active {
@@ -886,6 +890,12 @@ main {
 .profile-link:active {
   transform: translate(7px, 7px);
   box-shadow: 0 0 0 var(--ink);
+  color: #fff !important;
+  border-color: #fff !important;
+}
+
+.profile-link:active * {
+  color: #fff !important;
 }
 
 .profile-link:hover .profile-brand,
@@ -1023,7 +1033,7 @@ main {
 
   .elsewhere {
     height: auto;
-    padding: 50px 80px 42px;
+    padding: 60px 80px 42px;
   }
 
   .graveyard {
@@ -1368,7 +1378,7 @@ main {
   }
 
   .elsewhere {
-    padding: 30px 18px 34px;
+    padding: 40px 18px 34px;
   }
 
   .elsewhere-list {
@@ -1377,8 +1387,8 @@ main {
   }
 
   .graveyard {
-    margin: 30px -18px 0;
-    padding: 30px 18px 34px;
+    margin: 0 -18px 0;
+    padding: 22px 18px 34px;
   }
 
   .graveyard .section-heading {
@@ -1595,5 +1605,27 @@ main {
     background: var(--profile-active-color, var(--profile-color, #fff));
     border-color: var(--ink);
     box-shadow: 1px 1px 0 var(--ink);
+  }
+}
+
+.profile-link:focus,
+.profile-link:active {
+  color: #fff !important;
+  border-color: var(--profile-active-border, var(--ink)) !important;
+}
+
+.profile-link:focus *,
+.profile-link:active * {
+  color: #fff !important;
+}
+
+@media (hover: hover) {
+  .profile-link:hover {
+    color: #fff !important;
+    border-color: var(--profile-active-border, var(--ink)) !important;
+  }
+
+  .profile-link:hover * {
+    color: #fff !important;
   }
 }
