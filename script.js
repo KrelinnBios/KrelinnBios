@@ -22,7 +22,7 @@ const fallbackRepos = [
     html_url: "https://github.com/KrelinnBios/NeoDBLite",
     description: "面向 NeoDB 与兼容实例的非官方 Android 标记客户端。",
     language: "Kotlin",
-    stargazers_count: 6,
+    stargazers_count: 7,
     archived: false,
     fork: false,
   },
@@ -31,7 +31,7 @@ const fallbackRepos = [
     html_url: "https://github.com/KrelinnBios/YamiboPlus",
     description: "面向百合会论坛的非官方原生 Android 客户端。",
     language: "Kotlin",
-    stargazers_count: 4,
+    stargazers_count: 7,
     archived: false,
     fork: false,
   },
@@ -39,8 +39,8 @@ const fallbackRepos = [
     name: "Bgm2NeoDB",
     html_url: "https://github.com/KrelinnBios/Bgm2NeoDB",
     description: "将 Bangumi 收藏迁移到 NeoDB 的本地网页工具。",
-    language: "HTML",
-    stargazers_count: 0,
+    language: "Python",
+    stargazers_count: 1,
     archived: false,
     fork: false,
   },
@@ -57,7 +57,7 @@ const fallbackRepos = [
     name: "Toolbox",
     html_url: "https://toolbox.krelinnbios.com/",
     description: "按用途整理的在线工具与资源导航。",
-    language: "HTML",
+    language: "JavaScript",
     stargazers_count: 0,
     archived: false,
     fork: false,
@@ -89,6 +89,7 @@ const languageColors = {
   HTML: "#f06545",
   TypeScript: "#4f86e8",
   JavaScript: "#f1e05a",
+  Python: "#3572a5",
 };
 
 const projectList = document.querySelector("#project-list");
@@ -208,17 +209,16 @@ async function loadProjects() {
   renderProjects(fallbackRepos);
 
   try {
-    const response = await fetch(
-      "https://api.github.com/users/KrelinnBios/repos?per_page=100&sort=updated",
-      { headers: { Accept: "application/vnd.github+json" } },
-    );
+    const response = await fetch("./repos.json", {
+      headers: { Accept: "application/json" },
+    });
 
-    if (!response.ok) throw new Error(`GitHub API ${response.status}`);
+    if (!response.ok) throw new Error(`repos.json ${response.status}`);
 
     const repos = await response.json();
     renderProjects(repos);
   } catch (error) {
-    console.warn("Could not refresh GitHub repositories:", error);
+    console.warn("Could not refresh project data:", error);
   }
 }
 

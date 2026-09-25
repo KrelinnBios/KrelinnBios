@@ -1,0 +1,81 @@
+name: Update project data
+
+on:
+  schedule:
+    - cron: "0 16 * * *"
+
+  workflow_dispatch:
+
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/update-repos-data.yml"
+      - "repos-private.json"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-project-data
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out profile repository
+        uses: actions/checkout@v7
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Collect public repository data
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh api --paginate --slurp \
+            'users/KrelinnBios/repos?per_page=100&sort=updated' \
+            > pages.json
+
+          jq -s '
+            add
+            | map(select(.fork == false))
+            | map({
+                name,
+                html_url,
+                description,
+                language,
+                stargazers_count,
+                archived,
+                fork
+              })
+          ' pages.json > public.json
+
+      - name: Merge private project data
+        run: |
+          jq -s '
+            (.[0] + .[1])
+            | unique_by(.name)
+            | sort_by(.name)
+          ' public.json repos-private.json > repos.next.json
+
+      - name: Commit updated project data
+        run: |
+          if [ -f repos.json ] && cmp -s repos.next.json repos.json; then
+            echo "repos.json already up to date"
+            exit 0
+          fi
+
+          mv repos.next.json repos.json
+          rm -f pages.json public.json
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add -- repos.json
+          git commit -m "Update project data"
+
+          git pull --rebase origin main
+          git push origin HEAD:main

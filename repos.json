@@ -1,0 +1,110 @@
+[
+  {
+    "name": "AceSurvey",
+    "html_url": "https://github.com/KrelinnBios/AceSurvey",
+    "description": "面向无性恋社群的问卷与卡片生成工具。",
+    "language": "HTML",
+    "stargazers_count": 0,
+    "archived": false,
+    "fork": false
+  },
+  {
+    "name": "Bgm2NeoDB",
+    "html_url": "https://github.com/KrelinnBios/Bgm2NeoDB",
+    "description": "将 Bangumi 收藏迁移到 NeoDB 的本地网页工具。",
+    "language": "Python",
+    "stargazers_count": 1,
+    "archived": false,
+    "fork": false
+  },
+  {
+    "name": "GitHubProfileContributionFocus",
+    "html_url": "https://github.com/KrelinnBios/GitHubProfileContributionFocus",
+    "description": "基于「Last year」统计范围生成简洁的贡献重心图。",
+    "language": "Python",
+    "stargazers_count": 0,
+    "archived": false,
+    "fork": false
+  },
+  {
+    "name": "GitHubProfileLanguageDonut",
+    "html_url": "https://github.com/KrelinnBios/GitHubProfileLanguageDonut",
+    "description": "为个人主页生成简洁、可配置的语言占比环形图。",
+    "language": "Python",
+    "stargazers_count": 0,
+    "archived": false,
+    "fork": false
+  },
+  {
+    "name": "KrelinnBios",
+    "html_url": "https://github.com/KrelinnBios/KrelinnBios",
+    "description": null,
+    "language": "CSS",
+    "stargazers_count": 0,
+    "archived": false,
+    "fork": false
+  },
+  {
+    "name": "NeoDBLite",
+    "html_url": "https://github.com/KrelinnBios/NeoDBLite",
+    "description": "面向 NeoDB 与兼容实例的非官方 Android 标记客户端。",
+    "language": "Kotlin",
+    "stargazers_count": 7,
+    "archived": false,
+    "fork": false
+  },
+  {
+    "name": "Outvalue",
+    "html_url": "https://outvalue.lol/",
+    "description": "按公开支持金额实时排序的排名站点。",
+    "language": "TypeScript",
+    "stargazers_count": 0,
+    "archived": false,
+    "fork": false
+  },
+  {
+    "name": "PrismSelf",
+    "html_url": "https://github.com/KrelinnBios/PrismSelf",
+    "description": "面向性别理论、心理概念与人际关系议题的中文知识库。",
+    "language": "HTML",
+    "stargazers_count": 0,
+    "archived": false,
+    "fork": false
+  },
+  {
+    "name": "Toolbox",
+    "html_url": "https://github.com/KrelinnBios/Toolbox",
+    "description": "按用途整理的在线工具与资源导航。",
+    "language": "JavaScript",
+    "stargazers_count": 0,
+    "archived": false,
+    "fork": false
+  },
+  {
+    "name": "Which Me",
+    "html_url": "https://whichme.xyz",
+    "description": "面向中英文用户的结构化自我探索测评网站。",
+    "language": "JavaScript",
+    "stargazers_count": 0,
+    "archived": false,
+    "fork": false
+  },
+  {
+    "name": "YamiboPlus",
+    "html_url": "https://github.com/KrelinnBios/YamiboPlus",
+    "description": "面向百合会论坛的非官方原生 Android 客户端。",
+    "language": "Kotlin",
+    "stargazers_count": 7,
+    "archived": false,
+    "fork": false
+  },
+  {
+    "name": "YamiboReaderLite",
+    "html_url": "https://github.com/KrelinnBios/YamiboReaderLite",
+    "description": "面向百合会论坛的非官方 Android 阅读客户端。",
+    "language": "Kotlin",
+    "stargazers_count": 25,
+    "archived": true,
+    "fork": false
+  }
+]

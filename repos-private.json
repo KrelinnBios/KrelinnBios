@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Outvalue",
+    "html_url": "https://outvalue.lol/",
+    "description": "按公开支持金额实时排序的排名站点。",
+    "language": "TypeScript",
+    "stargazers_count": 0,
+    "archived": false,
+    "fork": false
+  },
+  {
+    "name": "Which Me",
+    "html_url": "https://whichme.xyz",
+    "description": "面向中英文用户的结构化自我探索测评网站。",
+    "language": "JavaScript",
+    "stargazers_count": 0,
+    "archived": false,
+    "fork": false
+  }
+]

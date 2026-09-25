@@ -11,13 +11,15 @@ KrelinnBios 是个人主页与 GitHub Profile 展示仓库，页面由原生 HTM
 - `mobile.css`：移动端响应式样式。
 - `scrollbar.css`：页面滚动条主题与跨浏览器样式。
 - `script.js`：GitHub 项目读取、兜底数据与页面交互。
+- `repos.json`：**自动生成**的项目数据，由 `.github/workflows/update-repos-data.yml` 每天写入，不要手动编辑。
+- `repos-private.json`：私有仓库项目的手写数据源，公开 API 拿不到，需要合并进 `repos.json`。
 - `favicon.svg`：站点图标。
 
 ## 开始任务前
 
 - 先读取与任务直接相关的 HTML、CSS 或 JavaScript，确认现有结构和调用关系后再修改。
 - 优先做最小、可验证的改动，不顺手重排无关代码、统一整份格式或改变其他页面行为。
-- 涉及项目卡片、外部链接或兜底数据时，同时检查 GitHub API 正常返回与 `fallbackRepos` 生效两种路径。
+- 涉及项目卡片、外部链接或兜底数据时，同时检查 `repos.json` 正常返回与 `fallbackRepos` 生效两种路径。
 
 ## 修改原则
 
@@ -58,6 +60,28 @@ KrelinnBios 是个人主页与 GitHub Profile 展示仓库，页面由原生 HTM
 - 只有资源 URL 变化时，浏览器才会可靠地重新获取新资源。
 - 漏改版本号会造成线上继续加载旧样式或旧脚本，与仓库当前代码不一致。
 
+### 项目数据来源
+
+项目列表数据**不直接从 GitHub API 拉取**。匿名请求限额是每个 IP 每小时 60 次，共享出口 IP 的访客会把额度互相耗光，导致页面长期显示过期兜底数据。
+
+数据流是构建时生成、运行时读静态文件：
+
+```text
+GitHub API ─┐
+            ├─→ .github/workflows/update-repos-data.yml ─→ repos.json ─→ script.js
+repos-private.json ─┘
+```
+
+- `repos.json` 每天由 workflow 重新生成并提交，内容有变化才提交。
+- `repos-private.json` 是手写源，记录 API 拿不到的私有仓库（Outvalue、Which Me）。新增此类项目时改这里。
+- workflow 的 `GITHUB_TOKEN` 按安装范围授权，**不能假定**它能读到账号下所有私有仓库，所以私有项目一律走 `repos-private.json`。
+- `repos.json` 是仓库内静态文件，GitHub Pages 对非 HTML 资源给 10 分钟缓存，脚本不额外加版本号。
+
+需要临时改项目数据时：
+
+- 改展示顺序、描述、链接 → 改 `script.js` 的 `fallbackRepos`，并同步 `repos-private.json`（仅私有项目）。
+- 只想立刻刷新线上数据 → 手动触发 `Update project data` workflow，不要手改 `repos.json`。
+
 ### 项目 URL 映射
 
 `script.js` 中部分项目的展示链接固定指向部署站点，而不是 GitHub 仓库：
@@ -68,8 +92,8 @@ KrelinnBios 是个人主页与 GitHub Profile 展示仓库，页面由原生 HTM
 | AceSurvey | <https://survey.prismself.vip> |
 | Toolbox | <https://toolbox.krelinnbios.com/> |
 
-- `fallbackRepos` 保存 GitHub API 加载失败时的兜底数据。
-- `renderProjects` 中针对项目名称的链接覆盖优先于 GitHub API 返回的 `html_url`。
+- `fallbackRepos` 保存 `repos.json` 加载失败时的兜底数据。
+- `renderProjects` 中针对项目名称的链接覆盖优先于 `repos.json` 中的 `html_url`。
 - 新增或修改同类项目时，两处映射必须保持一致。
 
 ## 验证
@@ -77,7 +101,7 @@ KrelinnBios 是个人主页与 GitHub Profile 展示仓库，页面由原生 HTM
 根据改动范围人工确认：
 
 - 页面可正常打开，控制台无新增脚本错误。
-- GitHub 项目正常加载，API 失败时兜底列表仍可显示。
+- GitHub 项目正常加载，`repos.json` 缺失时兜底列表仍可显示。
 - 项目名称、描述和跳转地址符合预期。
 - 桌面宽屏、常见移动端宽度以及移动浏览器“桌面版网站”模式下没有明显错位或异常拉伸。
 - 修改共享资源后，`index.html` 中四个版本号已同步更新。
