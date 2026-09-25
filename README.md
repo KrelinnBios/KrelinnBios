@@ -1,9 +1,3 @@
-# 👋 Bios
-
-### Independent Development · Useful Tools · Vibe Coding
-
-把具体想法做成真正可用的工具与产品
-
 ## 📦 Projects
 
 - [Outvalue](https://outvalue.lol/) — 按公开支持金额实时排序的排名站点
