@@ -56,7 +56,7 @@ const fallbackRepos = [
   {
     name: "Toolbox",
     html_url: "https://toolbox.krelinnbios.com/",
-    description: "代替浏览器收藏夹的个人工具导航站。",
+    description: "按用途整理的在线工具与资源导航。",
     language: "HTML",
     stargazers_count: 0,
     archived: false,
