@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
  <svg xmlns="http://www.w3.org/2000/svg" width="615" height="188" viewBox="0 0 615 188" role="img" aria-labelledby="title desc">
    <title id="title">Language distribution donut chart</title>
-   <desc id="desc">Language mix across current public repositories: Kotlin 61.7%, HTML 20.8%, JavaScript 11.1%, Python 3.5%, CSS 2.6%, PowerShell 0.1%, Batchfile 0.0%.</desc>
+   <desc id="desc">Language mix across current public repositories: Kotlin 61.4%, HTML 20.8%, JavaScript 11.3%, Python 3.5%, CSS 2.8%, PowerShell 0.1%, Batchfile 0.0%.</desc>
    <style>
      .label { fill: #24292f; font: 600 14px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
      .percent { fill: #57606a; font: 600 13px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
@@ -21,27 +21,27 @@
    <g>
      <circle cx="26.0" cy="30.5" r="5" fill="#7F52FF"/>
     <text class="label" x="44.0" y="34.5">Kotlin</text>
-    <text class="percent" x="183.0" y="34.5" text-anchor="end">61.7%</text>
+    <text class="percent" x="183.0" y="34.5" text-anchor="end">61.4%</text>
     <rect class="bar-track" x="44.0" y="43.5" width="139.0" height="3" rx="1.5"/>
-    <rect x="44.0" y="43.5" width="85.81" height="3" rx="1.5" fill="#7F52FF"/>
+    <rect x="44.0" y="43.5" width="85.40" height="3" rx="1.5" fill="#7F52FF"/>
     <circle cx="26.0" cy="62.5" r="5" fill="#E34F26"/>
     <text class="label" x="44.0" y="66.5">HTML</text>
     <text class="percent" x="183.0" y="66.5" text-anchor="end">20.8%</text>
     <rect class="bar-track" x="44.0" y="75.5" width="139.0" height="3" rx="1.5"/>
-    <rect x="44.0" y="75.5" width="28.97" height="3" rx="1.5" fill="#E34F26"/>
+    <rect x="44.0" y="75.5" width="28.92" height="3" rx="1.5" fill="#E34F26"/>
     <circle cx="26.0" cy="94.5" r="5" fill="#F7DF1E"/>
     <text class="label" x="44.0" y="98.5">JavaScript</text>
-    <text class="percent" x="183.0" y="98.5" text-anchor="end">11.1%</text>
+    <text class="percent" x="183.0" y="98.5" text-anchor="end">11.3%</text>
     <rect class="bar-track" x="44.0" y="107.5" width="139.0" height="3" rx="1.5"/>
-    <rect x="44.0" y="107.5" width="15.49" height="3" rx="1.5" fill="#F7DF1E"/>
+    <rect x="44.0" y="107.5" width="15.71" height="3" rx="1.5" fill="#F7DF1E"/>
     <circle cx="26.0" cy="126.5" r="5" fill="#22C55E"/>
     <text class="label" x="44.0" y="130.5">Python</text>
     <text class="percent" x="183.0" y="130.5" text-anchor="end">3.5%</text>
     <rect class="bar-track" x="44.0" y="139.5" width="139.0" height="3" rx="1.5"/>
-    <rect x="44.0" y="139.5" width="4.88" height="3" rx="1.5" fill="#22C55E"/>
+    <rect x="44.0" y="139.5" width="4.85" height="3" rx="1.5" fill="#22C55E"/>
     <circle cx="26.0" cy="158.5" r="5" fill="#00B8D9"/>
     <text class="label" x="44.0" y="162.5">CSS</text>
-    <text class="percent" x="183.0" y="162.5" text-anchor="end">2.6%</text>
+    <text class="percent" x="183.0" y="162.5" text-anchor="end">2.8%</text>
     <rect class="bar-track" x="44.0" y="171.5" width="139.0" height="3" rx="1.5"/>
     <rect x="44.0" y="171.5" width="4.00" height="3" rx="1.5" fill="#00B8D9"/>
     <circle cx="209.0" cy="30.5" r="5" fill="#EC4899"/>
@@ -58,14 +58,14 @@
 
    <g>
      <path class="donut-track" d="M 508.00 11.00 A 83.00 83.00 0 1 1 508.00 177.00 A 83.00 83.00 0 1 1 508.00 11.00 L 508.00 33.00 A 61.00 61.00 0 1 0 508.00 155.00 A 61.00 61.00 0 1 0 508.00 33.00 Z" />
-     <path class="segment" d="M 508.00 11.00 A 83.00 83.00 0 1 1 454.29 157.28 Q 455.54 143.91 468.53 140.51 A 61.00 61.00 0 1 0 508.00 33.00 Q 515.70 22.00 508.00 11.00 Z" fill="#7F52FF" />
-    <path class="segment" d="M 454.29 157.28 A 83.00 83.00 0 0 1 432.60 59.30 Q 445.81 56.90 452.59 68.50 A 61.00 61.00 0 0 0 468.53 140.51 Q 455.54 143.91 454.29 157.28 Z" fill="#E34F26" />
-    <path class="segment" d="M 432.60 59.30 A 83.00 83.00 0 0 1 472.25 19.09 Q 483.94 25.70 481.73 38.95 A 61.00 61.00 0 0 0 452.59 68.50 Q 445.81 56.90 432.60 59.30 Z" fill="#F7DF1E" />
-    <path class="segment" d="M 472.25 19.09 A 83.00 83.00 0 0 1 489.35 13.12 Q 499.32 22.11 494.29 34.56 A 61.00 61.00 0 0 0 481.73 38.95 Q 483.94 25.70 472.25 19.09 Z" fill="#22C55E" />
-    <path class="segment" d="M 489.35 13.12 A 83.00 83.00 0 0 1 502.79 11.16 Q 511.16 21.66 504.17 33.12 A 61.00 61.00 0 0 0 494.29 34.56 Q 499.32 22.11 489.35 13.12 Z" fill="#00B8D9" />
+     <path class="segment" d="M 508.00 11.00 A 83.00 83.00 0 1 1 455.47 158.26 Q 456.47 144.87 469.39 141.23 A 61.00 61.00 0 1 0 508.00 33.00 Q 515.70 22.00 508.00 11.00 Z" fill="#7F52FF" />
+    <path class="segment" d="M 455.47 158.26 A 83.00 83.00 0 0 1 431.89 60.89 Q 445.05 58.21 452.06 69.66 A 61.00 61.00 0 0 0 469.39 141.23 Q 456.47 144.87 455.47 158.26 Z" fill="#E34F26" />
+    <path class="segment" d="M 431.89 60.89 A 83.00 83.00 0 0 1 471.43 19.49 Q 483.19 25.97 481.12 39.24 A 61.00 61.00 0 0 0 452.06 69.66 Q 445.05 58.21 431.89 60.89 Z" fill="#F7DF1E" />
+    <path class="segment" d="M 471.43 19.49 A 83.00 83.00 0 0 1 488.37 13.35 Q 498.46 22.22 493.58 34.73 A 61.00 61.00 0 0 0 481.12 39.24 Q 483.19 25.97 471.43 19.49 Z" fill="#22C55E" />
+    <path class="segment" d="M 488.37 13.35 A 83.00 83.00 0 0 1 502.79 11.16 Q 511.16 21.66 504.17 33.12 A 61.00 61.00 0 0 0 493.58 34.73 Q 498.46 22.22 488.37 13.35 Z" fill="#00B8D9" />
     <path class="segment" d="M 502.79 11.16 A 83.00 83.00 0 0 1 505.39 11.04 Q 513.43 21.79 506.08 33.03 A 61.00 61.00 0 0 0 504.17 33.12 Q 511.16 21.66 502.79 11.16 Z" fill="#EC4899" />
     <path class="segment" d="M 505.39 11.04 A 83.00 83.00 0 0 1 508.00 11.00 Q 515.70 22.00 508.00 33.00 A 61.00 61.00 0 0 0 506.08 33.03 Q 513.43 21.79 505.39 11.04 Z" fill="#DFDC3A" />
    </g>
-   <text class="center-value" x="508.0" y="92.0">61.7%</text>
+   <text class="center-value" x="508.0" y="92.0">61.4%</text>
   <text class="center-label" x="508.0" y="113.0">Kotlin</text>
 </svg>
