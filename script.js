@@ -84,6 +84,12 @@ const fallbackRepos = [
 
 const projectOrder = fallbackRepos.map((repo) => repo.name);
 
+const excludedProjects = new Set([
+  "KrelinnBios",
+  "GitHubProfileLanguageDonut",
+  "GitHubProfileContributionFocus",
+]);
+
 const languageColors = {
   Kotlin: "#a97bff",
   HTML: "#f06545",
@@ -157,9 +163,18 @@ function cleanDescription(description) {
 function orderProjects(repos) {
   const repoMap = new Map(repos.map((repo) => [repo.name, repo]));
   const fallbackMap = new Map(fallbackRepos.map((repo) => [repo.name, repo]));
-  const ordered = projectOrder
-    .map((name) => repoMap.get(name) || fallbackMap.get(name))
-    .filter((repo) => repo && !repo.fork && repo.name !== "KrelinnBios");
+  const merged = new Map();
+
+  for (const source of [repoMap, fallbackMap]) {
+    for (const [name, repo] of source) {
+      if (!repo || repo.fork || excludedProjects.has(name) || merged.has(name)) continue;
+      merged.set(name, repo);
+    }
+  }
+
+  const known = projectOrder.filter((name) => merged.has(name));
+  const extra = [...merged.keys()].filter((name) => !projectOrder.includes(name));
+  const ordered = [...known, ...extra].map((name) => merged.get(name));
 
   return ordered.length > 0 ? ordered : fallbackRepos.slice();
 }
@@ -172,6 +187,7 @@ function renderProjects(repos) {
     .map((repo, index) => {
       const language = repo.language || "Profile";
       const color = languageColors[repo.language] || "#8b949e";
+      const stars = Number(repo.stargazers_count) || 0;
       const archiveLabel = repo.archived ? '<span class="archived">ARCHIVED</span>' : "";
       const description = cleanDescription(repo.description);
       const projectUrl =
@@ -193,9 +209,9 @@ function renderProjects(repos) {
               <span class="language-dot" style="--language-color: ${color}"></span>
               ${escapeHtml(language)}
             </span>
-            <span class="stars" aria-label="${repo.stargazers_count} 个星标">
+            <span class="stars" aria-label="${stars} 个星标">
               <span aria-hidden="true">★</span>
-              <span>${repo.stargazers_count}</span>
+              <span>${stars}</span>
             </span>
             ${archiveLabel}
           </span>
