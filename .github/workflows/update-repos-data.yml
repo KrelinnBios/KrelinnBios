@@ -35,23 +35,18 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          gh api --paginate --slurp \
-            'users/KrelinnBios/repos?per_page=100&sort=updated' \
-            > pages.json
+          gh api --paginate 'users/KrelinnBios/repos?per_page=100&sort=updated' \
+            --jq '.[] | {
+              name,
+              html_url,
+              description,
+              language,
+              stargazers_count,
+              archived,
+              fork
+            }' > public.jsonl
 
-          jq -s '
-            add
-            | map(select(.fork == false))
-            | map({
-                name,
-                html_url,
-                description,
-                language,
-                stargazers_count,
-                archived,
-                fork
-              })
-          ' pages.json > public.json
+          jq -s 'map(select(.fork == false))' public.jsonl > public.json
 
       - name: Merge private project data
         run: |
@@ -69,7 +64,7 @@ jobs:
           fi
 
           mv repos.next.json repos.json
-          rm -f pages.json public.json
+          rm -f public.jsonl public.json
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
