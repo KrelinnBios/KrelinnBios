@@ -10,7 +10,7 @@
 
 <p align="left">
   <a href="https://github.com/KrelinnBios/GitHubProfileLanguageDonut">
-    <img src="./language-donut-3261c0204ff3.svg" alt="Language distribution donut chart" />
+    <img src="./language-donut-e24c16b55007.svg" alt="Language distribution donut chart" />
   </a>
 </p>
 
@@ -18,6 +18,6 @@
 
 <p align="left">
   <a href="https://github.com/KrelinnBios/GitHubProfileContributionFocus">
-    <img src="./contribution-focus-2863a39e01f8.svg" alt="Contribution focus for GitHub's Last year range" />
+    <img src="./contribution-focus-7a13169a8f7f.svg" alt="Contribution focus for GitHub's Last year range" />
   </a>
 </p>
