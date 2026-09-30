@@ -1608,14 +1608,14 @@ main {
   }
 }
 
-.profile-link:focus,
+.profile-link:focus-visible,
 .profile-link:active {
   color: #fff !important;
   background: var(--profile-active-color, var(--profile-color, #fff)) !important;
   border-color: var(--profile-active-border, var(--ink)) !important;
 }
 
-.profile-link:focus *,
+.profile-link:focus-visible *,
 .profile-link:active * {
   color: #fff !important;
 }
