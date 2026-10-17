@@ -536,20 +536,6 @@ main {
   border-radius: 0;
   color: #eeeaff;
   background: #292952;
-  clip-path: polygon(
-    10px 0,
-    calc(100% - 10px) 0,
-    calc(100% - 10px) 6px,
-    100% 6px,
-    100% calc(100% - 6px),
-    calc(100% - 10px) calc(100% - 6px),
-    calc(100% - 10px) 100%,
-    10px 100%,
-    10px calc(100% - 6px),
-    0 calc(100% - 6px),
-    0 6px,
-    10px 6px
-  );
   font-family: "Courier Prime", "Noto Sans SC", "Microsoft YaHei", monospace;
   font-size: 15px;
   font-weight: 700;
