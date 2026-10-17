@@ -9,6 +9,15 @@ const fallbackRepos = [
     fork: false,
   },
   {
+    name: "Which Me",
+    html_url: "https://whichme.xyz",
+    description: "面向中英文用户的结构化自我探索测评网站。",
+    language: "JavaScript",
+    stargazers_count: 0,
+    archived: false,
+    fork: false,
+  },
+  {
     name: "PrismSelf",
     html_url: "https://prismself.vip/",
     description: "面向性别理论、心理概念与人际关系议题的中文知识库。",
@@ -22,7 +31,7 @@ const fallbackRepos = [
     html_url: "https://github.com/KrelinnBios/NeoDBLite",
     description: "面向 NeoDB 与兼容实例的非官方 Android 标记客户端。",
     language: "Kotlin",
-    stargazers_count: 7,
+    stargazers_count: 8,
     archived: false,
     fork: false,
   },
@@ -31,16 +40,7 @@ const fallbackRepos = [
     html_url: "https://github.com/KrelinnBios/YamiboPlus",
     description: "面向百合会论坛的非官方原生 Android 客户端。",
     language: "Kotlin",
-    stargazers_count: 7,
-    archived: false,
-    fork: false,
-  },
-  {
-    name: "Bgm2NeoDB",
-    html_url: "https://github.com/KrelinnBios/Bgm2NeoDB",
-    description: "将 Bangumi 收藏迁移到 NeoDB 的本地网页工具。",
-    language: "Python",
-    stargazers_count: 1,
+    stargazers_count: 8,
     archived: false,
     fork: false,
   },
@@ -63,21 +63,21 @@ const fallbackRepos = [
     fork: false,
   },
   {
+    name: "Bgm2NeoDB",
+    html_url: "https://github.com/KrelinnBios/Bgm2NeoDB",
+    description: "将 Bangumi 收藏迁移到 NeoDB 的本地网页工具。",
+    language: "Python",
+    stargazers_count: 1,
+    archived: false,
+    fork: false,
+  },
+  {
     name: "YamiboReaderLite",
     html_url: "https://github.com/KrelinnBios/YamiboReaderLite",
     description: "面向百合会论坛的非官方 Android 阅读客户端。",
     language: "Kotlin",
-    stargazers_count: 25,
+    stargazers_count: 26,
     archived: true,
-    fork: false,
-  },
-  {
-    name: "Which Me",
-    html_url: "https://whichme.xyz",
-    description: "面向中英文用户的结构化自我探索测评网站。",
-    language: "JavaScript",
-    stargazers_count: 0,
-    archived: false,
     fork: false,
   },
 ];
@@ -100,6 +100,7 @@ const languageColors = {
 
 const projectList = document.querySelector("#project-list");
 const repoCount = document.querySelector("#repo-count");
+const projectFilters = document.querySelector("#project-filters");
 const welcomePopup = document.querySelector("#welcome-popup");
 const contactEmail = document.querySelector(".contact-email");
 const copyToast = document.querySelector("#copy-toast");
@@ -179,8 +180,57 @@ function orderProjects(repos) {
   return ordered.length > 0 ? ordered : fallbackRepos.slice();
 }
 
-function renderProjects(repos) {
-  const projects = orderProjects(repos);
+const projectCategories = [
+  { key: "site", label: "独立站点", names: ["Outvalue", "Which Me", "PrismSelf"] },
+  { key: "app", label: "Android 应用", names: ["NeoDBLite", "YamiboPlus", "YamiboReaderLite"] },
+  { key: "tool", label: "工具", names: ["AceSurvey", "Toolbox", "Bgm2NeoDB"] },
+];
+
+const projectCategoryKeys = new Map(
+  projectCategories.flatMap((category) => category.names.map((name) => [name, category.key]))
+);
+
+const otherCategory = { key: "other", label: "其他" };
+
+let activeFilter = "all";
+let currentProjects = [];
+
+function categoryKeyOf(name) {
+  return projectCategoryKeys.get(name) || otherCategory.key;
+}
+
+function renderProjectFilters() {
+  if (!projectFilters) return;
+
+  const counts = new Map([["all", currentProjects.length]]);
+  for (const repo of currentProjects) {
+    const key = categoryKeyOf(repo.name);
+    counts.set(key, (counts.get(key) || 0) + 1);
+  }
+
+  if (!counts.has(activeFilter)) activeFilter = "all";
+
+  const categories = [...projectCategories, otherCategory].filter((category) => counts.get(category.key));
+  const chips = [{ key: "all", label: "全部" }, ...categories];
+
+  projectFilters.innerHTML = chips
+    .map((chip) => {
+      const active = chip.key === activeFilter;
+      return `
+        <button class="filter-chip${active ? " is-active" : ""}" type="button" data-filter="${chip.key}" aria-pressed="${active}">
+          <span>${escapeHtml(chip.label)}</span>
+          <span class="filter-count">${counts.get(chip.key)}</span>
+        </button>
+      `;
+    })
+    .join("");
+}
+
+function renderProjectRows() {
+  const projects =
+    activeFilter === "all"
+      ? currentProjects
+      : currentProjects.filter((repo) => categoryKeyOf(repo.name) === activeFilter);
 
   repoCount.textContent = projects.length;
   projectList.innerHTML = projects
@@ -219,6 +269,26 @@ function renderProjects(repos) {
       `;
     })
     .join("");
+}
+
+function renderProjects(repos) {
+  currentProjects = orderProjects(repos);
+  renderProjectFilters();
+  renderProjectRows();
+}
+
+if (projectFilters) {
+  projectFilters.addEventListener("click", (event) => {
+    const chip = event.target.closest(".filter-chip");
+    if (!chip) return;
+    activeFilter = chip.dataset.filter || "all";
+    for (const button of projectFilters.querySelectorAll(".filter-chip")) {
+      const active = button.dataset.filter === activeFilter;
+      button.classList.toggle("is-active", active);
+      button.setAttribute("aria-pressed", String(active));
+    }
+    renderProjectRows();
+  });
 }
 
 async function loadProjects() {

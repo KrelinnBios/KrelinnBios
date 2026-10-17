@@ -516,6 +516,64 @@ main {
   text-shadow: 3px 3px 0 var(--red);
 }
 
+.project-filters {
+  display: flex;
+  flex: none;
+  flex-wrap: wrap;
+  gap: 8px;
+  width: 100%;
+  max-width: 1160px;
+  margin: 0 auto 20px;
+  padding-bottom: 10px;
+  border-bottom: 3px solid #46456b;
+}
+
+.filter-chip {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 7px;
+  padding: 9px 14px;
+  border: 0;
+  border-radius: 0;
+  color: #9d9cc0;
+  background: transparent;
+  font-family: "Courier Prime", "Noto Sans SC", "Microsoft YaHei", monospace;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+  transition: transform 120ms steps(2, end), color 120ms steps(2, end), background 120ms steps(2, end);
+}
+
+.filter-chip.is-active {
+  color: var(--ink);
+  background: var(--acid);
+}
+
+.filter-chip:focus-visible {
+  color: var(--ink);
+  outline: 3px solid var(--acid);
+  outline-offset: 2px;
+  background: var(--acid);
+}
+
+.filter-chip:active {
+  transform: translate(2px, 2px);
+}
+
+.filter-count {
+  padding: 2px 4px;
+  border: 2px solid currentColor;
+  font-size: 11px;
+}
+
+@media (hover: hover) {
+  .filter-chip:hover:not(.is-active) {
+    color: #f5f3ec;
+    background: #33335f;
+  }
+}
+
 .project-list {
   display: grid;
   flex: none;
@@ -1104,6 +1162,21 @@ main {
     padding: 26px 14px 20px;
   }
 
+  .project-filters {
+    gap: 6px;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+  }
+
+  .filter-chip {
+    padding: 7px 10px;
+    font-size: 13px;
+  }
+
+  .filter-count {
+    font-size: 10px;
+  }
+
   .section-heading {
     grid-template-columns: 1fr auto;
     gap: 8px;
@@ -1520,6 +1593,11 @@ main {
   .projects {
     padding-right: 14px;
     padding-left: 14px;
+  }
+
+  .filter-chip {
+    padding: 6px 9px;
+    font-size: 12px;
   }
 
   .project-row {
