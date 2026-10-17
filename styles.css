@@ -520,57 +520,50 @@ main {
   display: flex;
   flex: none;
   flex-wrap: wrap;
-  gap: 8px;
-  width: 100%;
-  max-width: 1160px;
-  margin: 0 auto 20px;
-  padding-bottom: 10px;
-  border-bottom: 3px solid #46456b;
+  gap: 10px;
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 0 20px;
 }
 
 .filter-chip {
   display: inline-flex;
+  flex: 0 0 auto;
   align-items: baseline;
   gap: 7px;
-  padding: 9px 14px;
-  border: 0;
+  padding: 10px 16px;
+  border: 3px solid #777695;
   border-radius: 0;
-  color: #9d9cc0;
-  background: transparent;
+  color: #eeeaff;
+  background: #292952;
   font-family: "Courier Prime", "Noto Sans SC", "Microsoft YaHei", monospace;
   font-size: 15px;
   font-weight: 700;
   line-height: 1;
+  white-space: nowrap;
   cursor: pointer;
-  transition: transform 120ms steps(2, end), color 120ms steps(2, end), background 120ms steps(2, end);
+  box-shadow: 5px 5px 0 #090817;
+  transition: transform 120ms steps(2, end), color 120ms steps(2, end), background 120ms steps(2, end), border-color 120ms steps(2, end), box-shadow 120ms steps(2, end);
 }
 
 .filter-chip.is-active {
   color: var(--ink);
+  border-color: var(--ink);
   background: var(--acid);
 }
 
 .filter-chip:focus-visible {
-  color: var(--ink);
   outline: 3px solid var(--acid);
   outline-offset: 2px;
-  background: var(--acid);
-}
-
-.filter-chip:active {
-  transform: translate(2px, 2px);
-}
-
-.filter-count {
-  padding: 2px 4px;
-  border: 2px solid currentColor;
-  font-size: 11px;
 }
 
 @media (hover: hover) {
   .filter-chip:hover:not(.is-active) {
-    color: #f5f3ec;
-    background: #33335f;
+    transform: translate(3px, 3px);
+    color: #fff;
+    background: #3a3a6b;
+    border-color: var(--acid);
+    box-shadow: 2px 2px 0 #090817;
   }
 }
 
@@ -1163,18 +1156,13 @@ main {
   }
 
   .project-filters {
-    gap: 6px;
+    gap: 8px;
     margin-bottom: 16px;
-    padding-bottom: 8px;
   }
 
   .filter-chip {
-    padding: 7px 10px;
+    padding: 8px 11px;
     font-size: 13px;
-  }
-
-  .filter-count {
-    font-size: 10px;
   }
 
   .section-heading {

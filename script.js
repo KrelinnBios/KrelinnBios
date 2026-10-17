@@ -219,7 +219,6 @@ function renderProjectFilters() {
       return `
         <button class="filter-chip${active ? " is-active" : ""}" type="button" data-filter="${chip.key}" aria-pressed="${active}">
           <span>${escapeHtml(chip.label)}</span>
-          <span class="filter-count">${counts.get(chip.key)}</span>
         </button>
       `;
     })
