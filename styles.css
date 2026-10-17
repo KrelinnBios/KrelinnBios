@@ -536,6 +536,20 @@ main {
   border-radius: 0;
   color: #eeeaff;
   background: #292952;
+  clip-path: polygon(
+    10px 0,
+    calc(100% - 10px) 0,
+    calc(100% - 10px) 6px,
+    100% 6px,
+    100% calc(100% - 6px),
+    calc(100% - 10px) calc(100% - 6px),
+    calc(100% - 10px) 100%,
+    10px 100%,
+    10px calc(100% - 6px),
+    0 calc(100% - 6px),
+    0 6px,
+    10px 6px
+  );
   font-family: "Courier Prime", "Noto Sans SC", "Microsoft YaHei", monospace;
   font-size: 15px;
   font-weight: 700;
@@ -553,16 +567,19 @@ main {
 }
 
 .filter-chip:focus-visible {
-  outline: 3px solid var(--acid);
-  outline-offset: 2px;
+  color: var(--ink);
+  background: var(--acid);
+  border-color: var(--ink);
+  outline: 3px solid var(--blue);
+  outline-offset: -3px;
 }
 
 @media (hover: hover) {
   .filter-chip:hover:not(.is-active) {
     transform: translate(3px, 3px);
-    color: #fff;
-    background: #3a3a6b;
-    border-color: var(--acid);
+    color: var(--ink);
+    background: var(--acid);
+    border-color: var(--ink);
     box-shadow: 2px 2px 0 #090817;
   }
 }
