@@ -542,13 +542,26 @@ main {
   line-height: 1;
   white-space: nowrap;
   cursor: pointer;
-  box-shadow: 5px 5px 0 #090817;
-  transition: transform 120ms steps(2, end), color 120ms steps(2, end), background 120ms steps(2, end), border-color 120ms steps(2, end), box-shadow 120ms steps(2, end);
+  clip-path: polygon(
+    6px 0,
+    calc(100% - 6px) 0,
+    calc(100% - 6px) 3px,
+    100% 3px,
+    100% calc(100% - 3px),
+    calc(100% - 6px) calc(100% - 3px),
+    calc(100% - 6px) 100%,
+    6px 100%,
+    6px calc(100% - 3px),
+    0 calc(100% - 3px),
+    0 3px,
+    6px 3px
+  );
+  transition: color 120ms steps(2, end), background 120ms steps(2, end), border-color 120ms steps(2, end);
 }
 
 .filter-chip.is-active {
   color: var(--ink);
-  border-color: var(--ink);
+  border-color: var(--acid);
   background: var(--acid);
 }
 
@@ -556,17 +569,13 @@ main {
   color: var(--ink);
   background: var(--acid);
   border-color: var(--ink);
-  outline: 3px solid var(--blue);
-  outline-offset: -3px;
+  outline: none;
 }
 
 @media (hover: hover) {
   .filter-chip:hover:not(.is-active) {
-    transform: translate(3px, 3px);
-    color: var(--ink);
-    background: var(--acid);
-    border-color: var(--ink);
-    box-shadow: 2px 2px 0 #090817;
+    border-color: #eeeaff;
+    background: #34346a;
   }
 }
 
