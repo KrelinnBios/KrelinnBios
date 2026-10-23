@@ -1,14 +1,5 @@
 const fallbackRepos = [
   {
-    name: "Outvalue",
-    html_url: "https://outvalue.lol/",
-    description: "面向独立开发者的免费工具箱与限时付费作品展示站点。",
-    language: "TypeScript",
-    stargazers_count: 0,
-    archived: false,
-    fork: false,
-  },
-  {
     name: "Which Me",
     html_url: "https://whichme.xyz",
     description: "面向中英文用户的结构化自我探索测评网站。",
@@ -181,7 +172,7 @@ function orderProjects(repos) {
 }
 
 const projectCategories = [
-  { key: "site", label: "独立站点", names: ["Outvalue", "Which Me", "PrismSelf"] },
+  { key: "site", label: "独立站点", names: ["Which Me", "PrismSelf"] },
   { key: "app", label: "Android 应用", names: ["NeoDBLite", "YamiboPlus", "YamiboReaderLite"] },
   { key: "tool", label: "工具", names: ["AceSurvey", "Toolbox", "Bgm2NeoDB"] },
 ];
