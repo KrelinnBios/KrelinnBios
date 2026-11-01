@@ -10,7 +10,7 @@
 
 <p align="left">
   <a href="https://github.com/KrelinnBios/GitHubProfileLanguageDonut">
-    <img src="./language-donut-a24c52ae8d72.svg" alt="Language distribution donut chart" />
+    <img src="./language-donut-fa0ac3922f09.svg" alt="Language distribution donut chart" />
   </a>
 </p>
 
