@@ -174,7 +174,7 @@ function orderProjects(repos) {
 const projectCategories = [
   { key: "site", label: "独立站点", names: ["Which Me", "PrismSelf"] },
   { key: "app", label: "Android 应用", names: ["NeoDBLite", "YamiboPlus", "YamiboReaderLite"] },
-  { key: "tool", label: "工具", names: ["AceSurvey", "Toolbox", "Bgm2NeoDB"] },
+  { key: "tool", label: "网页工具", names: ["AceSurvey", "Toolbox", "Bgm2NeoDB"] },
 ];
 
 const projectCategoryKeys = new Map(
