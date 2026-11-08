@@ -11,7 +11,7 @@ const fallbackRepos = [
   {
     name: "PrismSelf",
     html_url: "https://prismself.vip/",
-    description: "面向性别理论、心理概念与人际关系议题的中文知识库。",
+    description: "围绕性别理论、心理概念与人际关系的中文知识库。",
     language: "HTML",
     stargazers_count: 0,
     archived: false,
@@ -229,7 +229,9 @@ function renderProjectRows() {
       const color = languageColors[repo.language] || "#8b949e";
       const stars = Number(repo.stargazers_count) || 0;
       const archiveLabel = repo.archived ? '<span class="archived">ARCHIVED</span>' : "";
-      const description = cleanDescription(repo.description);
+      const description = repo.name === "PrismSelf"
+        ? "围绕性别理论、心理概念与人际关系的中文知识库。"
+        : cleanDescription(repo.description);
       const projectUrl =
         repo.name === "PrismSelf"
           ? "https://prismself.vip/"
