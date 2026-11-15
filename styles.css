@@ -1315,8 +1315,8 @@ main {
   }
 
   .hero {
-    min-height: 0;
-    padding: 24px 24px 26px;
+    min-height: 250px;
+    padding: 38px 24px 34px;
   }
 
   .portrait-wrap,
@@ -1339,7 +1339,7 @@ main {
   }
 
   .portrait-label {
-    padding: 8px 6px;
+    padding: 4px 6px 10px;
     font-size: 12px;
     line-height: 1.15;
   }
@@ -1552,8 +1552,8 @@ main {
 
 @media (max-width: 420px) {
   .hero {
-    min-height: 0;
-    padding: 18px 20px 22px;
+    min-height: 230px;
+    padding: 34px 20px 30px;
   }
 
   .portrait-wrap,
