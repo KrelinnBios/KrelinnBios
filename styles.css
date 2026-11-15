@@ -974,7 +974,7 @@ main {
   font-family: "Noto Sans SC", "Microsoft YaHei", sans-serif;
   font-size: 19px;
   font-weight: 700;
-  line-height: 1.2;
+  line-height: 1.35;
   color: var(--ink);
 }
 
@@ -1218,9 +1218,7 @@ main {
 
   .profile-brand {
     min-width: 0;
-    overflow: hidden;
     font-size: 16px;
-    text-overflow: ellipsis;
   }
 
   .site-footer {
@@ -1498,11 +1496,8 @@ main {
 
   .profile-brand {
     min-width: 0;
-    overflow: hidden;
     font-size: 16px;
-    line-height: 1.2;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    line-height: 1.35;
   }
 
   .profile-summary {
