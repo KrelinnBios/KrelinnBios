@@ -330,11 +330,14 @@ main {
 }
 
 .portrait-label {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: relative;
   z-index: 1;
-  margin: 0;
-  padding: 7px 8px 12px;
+  height: 42px;
+  margin: -3px 0 0;
+  padding: 0 8px;
   color: #fff;
   background: var(--ink);
   font-family: "Noto Sans SC", "Microsoft YaHei", sans-serif;
@@ -343,6 +346,11 @@ main {
   line-height: 1.25;
   white-space: nowrap;
   text-align: center;
+}
+
+.portrait-label > span {
+  text-box: trim-both cap alphabetic;
+  transform: translateY(1px);
 }
 
 .contact-email {
@@ -1336,9 +1344,14 @@ main {
   }
 
   .portrait-label {
-    padding: 6px 6px 14px;
+    height: calc(1.15em + 23px);
+    padding: 0 6px;
     font-size: 12px;
     line-height: 1.15;
+  }
+
+  .portrait-label > span {
+    transform: none;
   }
 
   .projects {
