@@ -143,9 +143,13 @@ if (contactEmail) {
 }
 
 function escapeHtml(value) {
-  const element = document.createElement("span");
-  element.textContent = value;
-  return element.innerHTML;
+  return String(value ?? "").replace(/[&<>"']/g, (character) => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#39;",
+  })[character]);
 }
 
 function cleanDescription(description) {
@@ -185,6 +189,8 @@ const otherCategory = { key: "other", label: "其他" };
 
 let activeFilter = "all";
 let currentProjects = [];
+let renderedProjectFilters = "";
+let renderedProjectRows = "";
 
 function categoryKeyOf(name) {
   return projectCategoryKeys.get(name) || otherCategory.key;
@@ -204,7 +210,7 @@ function renderProjectFilters() {
   const categories = [...projectCategories, otherCategory].filter((category) => counts.get(category.key));
   const chips = [{ key: "all", label: "全部" }, ...categories];
 
-  projectFilters.innerHTML = chips
+  const markup = chips
     .map((chip) => {
       const active = chip.key === activeFilter;
       return `
@@ -214,6 +220,11 @@ function renderProjectFilters() {
       `;
     })
     .join("");
+
+  if (markup !== renderedProjectFilters) {
+    projectFilters.innerHTML = markup;
+    renderedProjectFilters = markup;
+  }
 }
 
 function renderProjectRows() {
@@ -223,7 +234,7 @@ function renderProjectRows() {
       : currentProjects.filter((repo) => categoryKeyOf(repo.name) === activeFilter);
 
   repoCount.textContent = projects.length;
-  projectList.innerHTML = projects
+  const markup = projects
     .map((repo, index) => {
       const language = repo.language || "Profile";
       const color = languageColors[repo.language] || "#8b949e";
@@ -261,6 +272,11 @@ function renderProjectRows() {
       `;
     })
     .join("");
+
+  if (markup !== renderedProjectRows) {
+    projectList.innerHTML = markup;
+    renderedProjectRows = markup;
+  }
 }
 
 function renderProjects(repos) {
@@ -273,7 +289,9 @@ if (projectFilters) {
   projectFilters.addEventListener("click", (event) => {
     const chip = event.target.closest(".filter-chip");
     if (!chip) return;
-    activeFilter = chip.dataset.filter || "all";
+    const nextFilter = chip.dataset.filter || "all";
+    if (nextFilter === activeFilter) return;
+    activeFilter = nextFilter;
     for (const button of projectFilters.querySelectorAll(".filter-chip")) {
       const active = button.dataset.filter === activeFilter;
       button.classList.toggle("is-active", active);
@@ -323,6 +341,7 @@ function initializeScrollbar() {
 
   let frame = 0;
   let drag = null;
+  let measurements = null;
   const isTouchDevice = window.matchMedia && (
     window.matchMedia('(hover: none)').matches ||
     window.matchMedia('(pointer: coarse)').matches
@@ -331,10 +350,14 @@ function initializeScrollbar() {
   let thumbVisible = false;
 
   function measure() {
-    const height = root.clientHeight;
-    const range = Math.max(0, root.scrollHeight - height);
-    const size = Math.min(height, Math.max(32, height * height / root.scrollHeight));
-    return { range, size, travel: height - size };
+    if (!measurements) {
+      const height = root.clientHeight;
+      const contentHeight = root.scrollHeight;
+      const range = Math.max(0, contentHeight - height);
+      const size = Math.min(height, Math.max(32, height * height / contentHeight));
+      measurements = { range, size, travel: height - size };
+    }
+    return measurements;
   }
 
   function update() {
@@ -357,6 +380,11 @@ function initializeScrollbar() {
 
   function scheduleUpdate() {
     if (!frame) frame = window.requestAnimationFrame(update);
+  }
+
+  function invalidateMeasurements() {
+    measurements = null;
+    scheduleUpdate();
   }
 
   function showThumb() {
@@ -411,8 +439,8 @@ function initializeScrollbar() {
   window.addEventListener("scroll", scheduleUpdate, { passive: true });
   window.addEventListener("scroll", showThumb, { passive: true });
   window.addEventListener("touchmove", showThumb, { passive: true });
-  window.addEventListener("resize", scheduleUpdate);
-  new ResizeObserver(scheduleUpdate).observe(document.body);
+  window.addEventListener("resize", invalidateMeasurements);
+  new ResizeObserver(invalidateMeasurements).observe(document.body);
   root.classList.add("has-page-scrollbar");
   update();
 }

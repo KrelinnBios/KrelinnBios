@@ -11,20 +11,30 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
-    <link rel="shortcut icon" href="./favicon.svg?v=202611172">
-    <link rel="icon" href="./favicon.svg?v=202611172">
+    <link rel="shortcut icon" href="./favicon.svg?v=202611173">
+    <link rel="icon" href="./favicon.svg?v=202611173">
     <meta property="og:title" content="Bios - 个人主页">
     <meta property="og:description" content="把具体想法做成真正可用的工具与产品。">
     <meta property="og:image" content="https://avatars.githubusercontent.com/u/162010446?v=4">
     <title>Bios - 个人主页</title>
+    <link rel="stylesheet" href="./styles.css?v=202611173">
+    <link rel="preload" href="./repos.json" as="fetch" type="application/json" crossorigin>
+    <link rel="preconnect" href="https://avatars.githubusercontent.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700;900&display=swap"
       rel="stylesheet"
+      media="print"
+      onload="this.onload=null;this.media='all'"
     >
-    <link rel="stylesheet" href="./styles.css?v=202611172">
-    <script src="./script.js?v=202611172" defer></script>
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700;900&display=swap"
+        rel="stylesheet"
+      >
+    </noscript>
+    <script src="./script.js?v=202611173" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main">跳到主要内容</a>
@@ -41,10 +51,13 @@
           <div class="portrait-wrap">
             <div class="portrait-frame">
               <img
-                src="https://avatars.githubusercontent.com/u/162010446?v=4"
+                src="https://avatars.githubusercontent.com/u/162010446?v=4&amp;s=400"
+                srcset="https://avatars.githubusercontent.com/u/162010446?v=4&amp;s=200 1x, https://avatars.githubusercontent.com/u/162010446?v=4&amp;s=400 2x"
                 alt="Bios"
                 width="460"
                 height="460"
+                fetchpriority="high"
+                decoding="async"
               >
             </div>
             <span class="portrait-label"><span>Krelinn Bios</span></span>
