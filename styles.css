@@ -922,7 +922,7 @@ main {
 .graveyard-links .graveyard-bangumi {
   --profile-active-color: #f09199;
   --profile-active-border: #a95761;
-  --profile-active-text: var(--ink);
+  --profile-active-text: #fff;
 }
 
 .profile-link:focus-visible,
