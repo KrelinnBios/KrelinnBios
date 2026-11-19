@@ -925,7 +925,7 @@ main {
   --profile-active-text: #fff;
 }
 
-.profile-link:focus,
+.profile-link:focus-visible,
 .profile-link:active {
   transform: translate(5px, 5px);
   outline: none;
@@ -950,9 +950,9 @@ main {
   box-shadow: 0 0 0 var(--ink);
 }
 
-.profile-link:focus .profile-brand,
+.profile-link:focus-visible .profile-brand,
 .profile-link:active .profile-brand,
-.profile-link:focus .profile-summary,
+.profile-link:focus-visible .profile-summary,
 .profile-link:active .profile-summary {
   color: var(--profile-active-text, #fff);
 }
