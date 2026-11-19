@@ -446,3 +446,20 @@ function initializeScrollbar() {
 }
 
 initializeScrollbar();
+
+function initializeProfileLinkPress() {
+  const links = document.querySelectorAll(".profile-link");
+  document.addEventListener("pointerdown", (event) => {
+    const target = event.target instanceof Element ? event.target.closest(".profile-link") : null;
+    links.forEach((link) => {
+      if (link !== target) link.classList.remove("is-pressed");
+    });
+    if (target) target.classList.add("is-pressed");
+  });
+  links.forEach((link) => {
+    link.addEventListener("pointerleave", () => link.classList.remove("is-pressed"));
+    link.addEventListener("pointercancel", () => link.classList.remove("is-pressed"));
+  });
+}
+
+initializeProfileLinkPress();
