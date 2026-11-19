@@ -611,7 +611,7 @@ main {
   border-radius: 0;
   cursor: pointer;
   box-shadow: 7px 7px 0 #090817;
-  transition: transform 120ms steps(2, end), color 120ms steps(2, end), background 120ms steps(2, end), box-shadow 120ms steps(2, end);
+  transition: transform 120ms steps(2, end), box-shadow 120ms steps(2, end);
   background: #292952;
   clip-path: polygon(
     10px 0,
@@ -867,7 +867,7 @@ main {
   );
   cursor: pointer;
   box-shadow: 7px 7px 0 var(--ink);
-  transition: transform 120ms steps(2, end), color 120ms steps(2, end), background 120ms steps(2, end), box-shadow 120ms steps(2, end);
+  transition: transform 120ms steps(2, end), box-shadow 120ms steps(2, end);
 }
 
 .profile-link:last-child {
