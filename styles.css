@@ -765,7 +765,7 @@ main {
 }
 
 .elsewhere-list {
-  flex: 1 0 auto;
+  flex: 0 0 auto;
   min-height: 0;
   scrollbar-width: none;
 }
@@ -796,7 +796,7 @@ main {
 
 .graveyard {
   box-sizing: border-box;
-  margin: 14px -80px 0;
+  margin: 6px -80px 0;
   padding: 36px 80px 42px;
   background: transparent;
   border-top: none;
